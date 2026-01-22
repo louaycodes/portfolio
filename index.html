@@ -58,12 +58,7 @@
                             <span class="terminal-title">louay-terminal — -zsh</span>
                         </div>
                         <div class="terminal-body">
-                            <div class="typing-line">Initializing Cloud Environment...</div>
-                            <div class="typing-line">Provisioning Terraform modules...</div>
-                            <div class="typing-line">Deploying Kubernetes cluster [||||||||||] 100%</div>
-                            <div class="typing-line">Connection established: louay@cloud-node-01</div>
-                            <div class="typing-line success">System ready.</div>
-                            <div class="cursor-line">> <span class="blink">_</span></div>
+                            <!-- Terminal content will be populated by JavaScript animation -->
                         </div>
                     </div>
                 </div>
@@ -171,7 +166,7 @@
                             </div>
                             <div class="code-content">
                                 <div class="code-line"><span class="keyword">while</span>(<span
-                                        class="variable">alive</span> == <span class="constant">ALIVE</span>) {</div>
+                                        class="variable">Louay</span> == <span class="constant">ALIVE</span>) {</div>
                                 <div class="code-line indent-1"><span class="function">eat</span>();</div>
                                 <div class="code-line indent-1">💻 <span class="function">code</span>(<span
                                         class="number">24</span>, <span class="number">7</span>);</div>
@@ -353,149 +348,106 @@
 
 
             <!-- What I've Built Section -->
-            <section class="projects-section">
+            <section class="projects-section" id="projects">
                 <div class="container">
                     <h2 class="section-title">What I've Built</h2>
-                    <p class="section-subtitle">Explore my latest projects and innovations</p>
+                    <p class="section-subtitle">Projects that I enjoyed working on.</p>
 
-                    <div class="carousel-container">
-                        <button class="carousel-nav prev" id="prevBtn" aria-label="Previous project">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </button>
-
-                        <div class="carousel-track">
-                            <!-- Project Card 1: LLM Bench Marker -->
-                            <div class="project-card active" data-index="0">
-                                <div class="project-image">
-                                    <div class="placeholder-img">
-                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                            <rect width="80" height="80" rx="12" fill="url(#gradient1)" />
-                                            <path d="M25 30H55M25 40H55M25 50H45" stroke="white" stroke-width="3"
-                                                stroke-linecap="round" />
-                                            <defs>
-                                                <linearGradient id="gradient1" x1="0" y1="0" x2="80" y2="80">
-                                                    <stop offset="0%" stop-color="#667eea" />
-                                                    <stop offset="100%" stop-color="#764ba2" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-metadata">
-                                        <span class="project-date">January 2026</span>
-                                        <div class="project-tags">
-                                            <span class="tag">AI/ML</span>
-                                            <span class="tag">Python</span>
-                                            <span class="tag">Benchmarking</span>
-                                        </div>
-                                    </div>
-                                    <h3 class="project-title">LLM Bench Marker</h3>
-                                    <p class="project-description">
-                                        A comprehensive benchmarking tool for evaluating Large Language Models across
-                                        various
-                                        metrics including performance, accuracy, and response quality. Features
-                                        real-time
-                                        analytics and comparison dashboards.
-                                    </p>
-                                    <button class="project-btn">View Project →</button>
-                                </div>
+                    <div class="projects-grid">
+                        <!-- Project Card 1: AI Prompt Manager -->
+                        <div class="project-card">
+                            <div class="score-badge">97</div>
+                            <div class="project-image">
+                                <div class="placeholder-img dark-code"></div>
                             </div>
-
-                            <!-- Project Card 2: ML Data Analytics -->
-                            <div class="project-card" data-index="1">
-                                <div class="project-image">
-                                    <div class="placeholder-img">
-                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                            <rect width="80" height="80" rx="12" fill="url(#gradient2)" />
-                                            <circle cx="20" cy="55" r="3" fill="white" />
-                                            <circle cx="35" cy="45" r="3" fill="white" />
-                                            <circle cx="50" cy="35" r="3" fill="white" />
-                                            <circle cx="65" cy="25" r="3" fill="white" />
-                                            <path d="M20 55L35 45L50 35L65 25" stroke="white" stroke-width="2" />
-                                            <defs>
-                                                <linearGradient id="gradient2" x1="0" y1="0" x2="80" y2="80">
-                                                    <stop offset="0%" stop-color="#f093fb" />
-                                                    <stop offset="100%" stop-color="#f5576c" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-metadata">
-                                        <span class="project-date">December 2025</span>
-                                        <div class="project-tags">
-                                            <span class="tag">Analytics</span>
-                                            <span class="tag">ML</span>
-                                            <span class="tag">Visualization</span>
-                                        </div>
-                                    </div>
-                                    <h3 class="project-title">ML Data Analytics</h3>
-                                    <p class="project-description">
-                                        An advanced data analytics platform leveraging machine learning algorithms to
-                                        provide
-                                        deep insights into complex datasets. Includes predictive modeling, anomaly
-                                        detection,
-                                        and automated reporting.
-                                    </p>
-                                    <button class="project-btn">View Project →</button>
-                                </div>
+                            <div class="project-header">
+                                <h3 class="project-title">AI Prompt Manager</h3>
+                                <span class="project-date">October 2025</span>
                             </div>
-
-                            <!-- Project Card 3: AI Coaching Chatbots -->
-                            <div class="project-card" data-index="2">
-                                <div class="project-image">
-                                    <div class="placeholder-img">
-                                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                            <rect width="80" height="80" rx="12" fill="url(#gradient3)" />
-                                            <circle cx="40" cy="35" r="12" stroke="white" stroke-width="3"
-                                                fill="none" />
-                                            <path d="M28 55C28 48 33 43 40 43C47 43 52 48 52 55" stroke="white"
-                                                stroke-width="3" stroke-linecap="round" />
-                                            <defs>
-                                                <linearGradient id="gradient3" x1="0" y1="0" x2="80" y2="80">
-                                                    <stop offset="0%" stop-color="#4facfe" />
-                                                    <stop offset="100%" stop-color="#00f2fe" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="project-content">
-                                    <div class="project-metadata">
-                                        <span class="project-date">November 2025</span>
-                                        <div class="project-tags">
-                                            <span class="tag">AI</span>
-                                            <span class="tag">NLP</span>
-                                            <span class="tag">Chatbot</span>
-                                        </div>
-                                    </div>
-                                    <h3 class="project-title">AI Coaching Chatbots</h3>
-                                    <p class="project-description">
-                                        Intelligent coaching chatbots powered by natural language processing to provide
-                                        personalized guidance and support. Features context-aware conversations and
-                                        adaptive
-                                        learning paths.
-                                    </p>
-                                    <button class="project-btn">View Project →</button>
-                                </div>
+                            <div class="category-tags">
+                                <span class="category-tag orange">AI Native App</span>
+                                <span class="category-tag orange">Utility</span>
                             </div>
+                            <p class="project-description">
+                                An AI-native utility embedded directly inside ChatGPT that helps users turn unclear or
+                                incomplete requests into clear, structured instructions before content is generated.
+                                It...
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastMCP</span>
+                                <span class="tech-tag">Langbase</span>
+                                <span class="tech-tag count">+20</span>
+                            </div>
+                            <button class="view-details-btn">View Details ></button>
                         </div>
 
-                        <button class="carousel-nav next" id="nextBtn" aria-label="Next project">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </button>
+                        <!-- Project Card 2: AI Knowledge Studio -->
+                        <div class="project-card">
+                            <div class="score-badge">96</div>
+                            <div class="project-image">
+                                <div class="placeholder-img green-chart">
+                                    <div class="unavailable-text">Image Unavailable</div>
+                                </div>
+                            </div>
+                            <div class="project-header">
+                                <h3 class="project-title">AI Knowledge Studio</h3>
+                                <span class="project-date">December 2025</span>
+                            </div>
+                            <div class="category-tags">
+                                <span class="category-tag orange">AI Utility</span>
+                                <span class="category-tag orange">Analytics</span>
+                            </div>
+                            <p class="project-description">
+                                A natural-language analytics layer that lets teams ask questions over massive metrics
+                                data
+                                and get accurate, explainable answers in seconds. It queries two sources: ClickHouse
+                                f...
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">MindsDB</span>
+                                <span class="tech-tag">Langbase</span>
+                                <span class="tech-tag">LLAMA</span>
+                                <span class="tech-tag count">+11</span>
+                            </div>
+                            <button class="view-details-btn">View Details ></button>
+                        </div>
+
+                        <!-- Project Card 3: AI Voice Agents Platform -->
+                        <div class="project-card">
+                            <div class="score-badge">95</div>
+                            <div class="project-image">
+                                <div class="placeholder-img purple-ui"></div>
+                            </div>
+                            <div class="project-header">
+                                <h3 class="project-title">AI Voice Agents Platform</h3>
+                                <span class="project-date">October 2023</span>
+                            </div>
+                            <div class="category-tags">
+                                <span class="category-tag green">Web App</span>
+                                <span class="category-tag green">SDK</span>
+                                <span class="category-tag green">API</span>
+                                <span class="category-tag green">Website</span>
+                                <span class="category-tag green">Docs</span>
+                            </div>
+                            <p class="project-description">
+                                A plug-and-play platform for integrating an AI-powered voice user interface (VUI)
+                                directly on
+                                top of existing applications. It is designed to be embedded in minutes, providing
+                                AI-driven...
+                            </p>
+                            <div class="tech-tags">
+                                <span class="tech-tag">LangChain</span>
+                                <span class="tech-tag">FastMCP</span>
+                                <span class="tech-tag">PineconeDB</span>
+                                <span class="tech-tag count">+15</span>
+                            </div>
+                            <button class="view-details-btn">View Details ></button>
+                        </div>
                     </div>
 
                     <div class="projects-footer">
-                        <button class="view-all-btn">View All Projects</button>
+                        <button class="browse-all-btn">Browse all 98 projects →</button>
                     </div>
                 </div>
             </section>
@@ -513,6 +465,7 @@
             </footer>
 
             <!-- Scripts -->
+            <script src="assets/js/components/terminal-typing.js"></script>
             <script src="assets/js/components/editor.js"></script>
             <script src="assets/js/components/carousel.js"></script>
             <script src="assets/js/main.js"></script>
