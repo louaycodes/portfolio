@@ -57,8 +57,8 @@
                             <span class="window-btn green"></span>
                             <span class="terminal-title">louay-terminal — -zsh</span>
                         </div>
-                        <div class="terminal-body">
-                            <!-- Terminal content will be populated by JavaScript animation -->
+                        <div class="terminal-body" id="hero-terminal">
+                            <!-- Content will be animated by JavaScript -->
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
 
                     <div class="stats-grid">
                         <!-- Card 1 -->
-                        <div class="stats-card">
+                        <div class="stats-card scroll-animate">
                             <div class="stats-icon yellow">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -95,7 +95,7 @@
                         </div>
 
                         <!-- Card 2 -->
-                        <div class="stats-card">
+                        <div class="stats-card scroll-animate">
                             <div class="stats-icon orange">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -111,7 +111,7 @@
                         </div>
 
                         <!-- Card 3 -->
-                        <div class="stats-card">
+                        <div class="stats-card scroll-animate">
                             <div class="stats-icon red">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -128,7 +128,7 @@
                         </div>
 
                         <!-- Card 4 -->
-                        <div class="stats-card">
+                        <div class="stats-card scroll-animate">
                             <div class="stats-icon green">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
@@ -144,7 +144,7 @@
                     </div>
 
                     <!-- MegaScript Code Window -->
-                    <div class="megascript-window">
+                    <div class="megascript-window scroll-animate">
                         <div class="window-header">
                             <div class="window-controls">
                                 <span class="control red"></span>
@@ -164,7 +164,7 @@
                                 <span>4</span>
                                 <span>5</span>
                             </div>
-                            <div class="code-content">
+                            <div class="code-content life-code-content">
                                 <div class="code-line"><span class="keyword">while</span>(<span
                                         class="variable">Louay</span> == <span class="constant">ALIVE</span>) {</div>
                                 <div class="code-line indent-1"><span class="function">eat</span>();</div>
@@ -195,7 +195,7 @@
                     <h2 class="section-title">Who I Am</h2>
                     <p class="section-subtitle">My story and background.</p>
                     <!-- Overview Card -->
-                    <div class="overview-card">
+                    <div class="overview-card scroll-animate">
                         <div class="overview-header">
                             <svg class="overview-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -215,7 +215,7 @@
                         </p>
                     </div>
 
-                    <div class="macos-wrapper">
+                    <div class="macos-wrapper scroll-animate">
                         <div class="macos-window">
                             <div class="window-header">
                                 <div class="window-controls">
@@ -355,7 +355,7 @@
 
                     <div class="projects-grid">
                         <!-- Project Card 1: AI Prompt Manager -->
-                        <div class="project-card">
+                        <div class="project-card scroll-animate">
                             <div class="score-badge">97</div>
                             <div class="project-image">
                                 <div class="placeholder-img dark-code"></div>
@@ -383,7 +383,7 @@
                         </div>
 
                         <!-- Project Card 2: AI Knowledge Studio -->
-                        <div class="project-card">
+                        <div class="project-card scroll-animate">
                             <div class="score-badge">96</div>
                             <div class="project-image">
                                 <div class="placeholder-img green-chart">
@@ -414,7 +414,7 @@
                         </div>
 
                         <!-- Project Card 3: AI Voice Agents Platform -->
-                        <div class="project-card">
+                        <div class="project-card scroll-animate">
                             <div class="score-badge">95</div>
                             <div class="project-image">
                                 <div class="placeholder-img purple-ui"></div>
@@ -452,22 +452,646 @@
                 </div>
             </section>
 
+
+            <section class="technologies-section" id="technologies">
+                <div class="container">
+                    <h2 class="section-title">Technologies I've used</h2>
+                    <p class="section-subtitle">The stack behind my work.</p>
+
+                    <div class="tech-window scroll-animate">
+                        <div class="tech-window-header">
+                            <div class="tech-window-controls">
+                                <span class="tech-control red"></span>
+                                <span class="tech-control yellow"></span>
+                                <span class="tech-control green"></span>
+                            </div>
+                            <div class="tech-search-container">
+                                <svg class="tech-search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                                <input type="text" class="tech-search-input" id="tech-search"
+                                    placeholder="Filter technologies...">
+                            </div>
+                            <div style="width: 52px;"></div> <!-- Spacer to balance controls -->
+                        </div>
+                        <div class="tech-window-body">
+                            <div class="tech-grid" id="tech-grid">
+                                <!-- Programming Languages -->
+                                <div class="tech-card" data-name="Python">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/python.png" class="tech-icon" alt="Python">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Python</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="JavaScript">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/javascript.png" class="tech-icon"
+                                            alt="JavaScript">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">JavaScript</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="TypeScript">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/typescript.png" class="tech-icon"
+                                            alt="TypeScript">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">TypeScript</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="PHP">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/php.png" class="tech-icon" alt="PHP">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">PHP</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="C#">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/csharp.png" class="tech-icon" alt="C#">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">C#</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="C++">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/c++.png" class="tech-icon" alt="C++">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">C++</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="C">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/c.png" class="tech-icon" alt="C">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">C</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="SDL">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/sdl.png" class="tech-icon" alt="SDL">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">SDL</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cloud & DevOps -->
+                                <div class="tech-card" data-name="Docker">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/docker.png" class="tech-icon" alt="Docker">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Docker</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Kubernetes">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/kubernetes.png" class="tech-icon"
+                                            alt="Kubernetes">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Kubernetes</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Ansible">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/ansible.png" class="tech-icon" alt="Ansible">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Ansible</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Jenkins">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/jenkins.png" class="tech-icon" alt="Jenkins">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Jenkins</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Git">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/git.png" class="tech-icon" alt="Git">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Git</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="GitHub">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/github.png" class="tech-icon" alt="GitHub">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">GitHub</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="OpenStack">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/openstack.png" class="tech-icon" alt="OpenStack">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">OpenStack</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Web & Frontend -->
+                                <div class="tech-card" data-name="Angular">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/angular.png" class="tech-icon" alt="Angular">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Angular</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="HTML">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/html.png" class="tech-icon" alt="HTML">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">HTML</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="CSS">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/css.png" class="tech-icon" alt="CSS">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">CSS</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Figma">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/figma.png" class="tech-icon" alt="Figma">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Figma</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Backend & Frameworks -->
+                                <div class="tech-card" data-name="Spring Boot">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/springboot.png" class="tech-icon"
+                                            alt="Spring Boot">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Spring Boot</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Symfony">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/symfony.png" class="tech-icon" alt="Symfony">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Symfony</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Composer">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/composer.png" class="tech-icon" alt="Composer">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Composer</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name=".NET">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/NET.png" class="tech-icon" alt=".NET">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">.NET</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="NuGet">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/NuGet.png" class="tech-icon" alt="NuGet">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">NuGet</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Databases & Storage -->
+                                <div class="tech-card" data-name="MySQL">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/mysql.png" class="tech-icon" alt="MySQL">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">MySQL</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Firebase">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/firebase.png" class="tech-icon" alt="Firebase">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Firebase</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Doctrine">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/doctrine.png" class="tech-icon" alt="Doctrine">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Doctrine</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="SQL Developer">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/sqldevelopper.png" class="tech-icon"
+                                            alt="SQL Developer">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">SQL Developer</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Monitoring & Servers -->
+                                <div class="tech-card" data-name="Prometheus">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/prometheus.png" class="tech-icon"
+                                            alt="Prometheus">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Prometheus</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Grafana">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/grafana.png" class="tech-icon" alt="Grafana">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Grafana</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Nginx">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/nginx.png" class="tech-icon" alt="Nginx">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Nginx</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Apache">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/apache.png" class="tech-icon" alt="Apache">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Apache</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- OS & Utilities -->
+                                <div class="tech-card" data-name="Linux">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/linux.png" class="tech-icon" alt="Linux">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Linux</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Ubuntu">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/ubuntu.png" class="tech-icon" alt="Ubuntu">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Ubuntu</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Anaconda">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/anaconda.png" class="tech-icon" alt="Anaconda">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Anaconda</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Jupyter">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/jupyter.png" class="tech-icon" alt="Jupyter">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Jupyter</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Postman">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/postman.png" class="tech-icon" alt="Postman">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Postman</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Arduino">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/arduino.png" class="tech-icon" alt="Arduino">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Arduino</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-card" data-name="Qt Designer">
+                                    <div class="tech-icon-wrapper">
+                                        <img src="assets/images/icons/qtDesigner.png" class="tech-icon"
+                                            alt="Qt Designer">
+                                    </div>
+                                    <div class="tech-info">
+                                        <div class="tech-name-row">
+                                            <span class="tech-name">Qt Designer</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="contact-section" id="contact">
+                <div class="container">
+                    <h2 class="section-title">Get in Touch</h2>
+                    <p class="section-subtitle">Start the conversation today.</p>
+
+                    <div class="contact-grid">
+
+
+                        <!-- Phone Number -->
+                        <div class="contact-card">
+                            <div class="contact-card-content">
+                                <div class="contact-icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-label">Phone Number</span>
+                                    <span class="contact-value">+216 98 202 263 <svg width="18" height="18"
+                                            viewBox="0 0 24 24" fill="#25D366"
+                                            style="display:inline-block; vertical-align:middle; margin-left:5px;">
+                                            <path
+                                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                        </svg></span>
+                                </div>
+                            </div>
+                            <button class="contact-action-btn">Send Text</button>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="contact-card">
+                            <div class="contact-card-content">
+                                <div class="contact-icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-label">Email Address</span>
+                                    <span class="contact-value">louayzorai24@gmail.com</span>
+                                </div>
+                            </div>
+                            <button class="contact-action-btn">Send Email</button>
+                        </div>
+
+                        <!-- Video Call -->
+                        <div class="contact-card">
+                            <div class="contact-card-content">
+                                <div class="contact-icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-label">Video Call</span>
+                                    <span class="contact-value">Google Meet</span>
+                                </div>
+                            </div>
+                            <button class="contact-action-btn">Schedule Call</button>
+                        </div>
+
+                        <!-- Discord -->
+                        <div class="contact-card">
+                            <div class="contact-card-content">
+                                <div class="contact-icon-box">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                                    </svg>
+                                </div>
+                                <div class="contact-info">
+                                    <span class="contact-label">Add on</span>
+                                    <span class="contact-value">Discord</span>
+                                </div>
+                            </div>
+                            <button class="contact-action-btn">Add</button>
+                        </div>
+                    </div>
+
+                    <div class="social-row">
+                        <!-- LinkedIn -->
+                        <a href="#" class="social-item">
+                            <div class="social-icon-wrapper">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                                </svg>
+                            </div>
+                            <span class="social-name">LinkedIn</span>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="#" class="social-item">
+                            <div class="social-icon-wrapper">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                                </svg>
+                            </div>
+                            <span class="social-name">GitHub</span>
+                        </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- Instagram -->
+                        <a href="#" class="social-item">
+                            <div class="social-icon-wrapper">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M7.75 2h8.5C19.42 2 22 4.58 22 7.75v8.5C22 19.42 19.42 22 16.25 22h-8.5C4.58 22 2 19.42 2 16.25v-8.5C2 4.58 4.58 2 7.75 2zm0 1.5C5.41 3.5 3.5 5.41 3.5 7.75v8.5c0 2.34 1.91 4.25 4.25 4.25h8.5c2.34 0 4.25-1.91 4.25-4.25v-8.5c0-2.34-1.91-4.25-4.25-4.25h-8.5zm8.5 2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm-4.25 1.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5z" />
+                                </svg>
+                            </div>
+                            <span class="social-name">Instagram</span>
+                        </a>
+
+                        <!-- More -->
+
+                    </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
             <!-- Footer -->
             <footer class="footer">
                 <div class="container">
                     <p>&copy; 2026 Louay Zorai. All rights reserved.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">GitHub</a>
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">Twitter</a>
-                    </div>
                 </div>
             </footer>
 
             <!-- Scripts -->
-            <script src="assets/js/components/terminal-typing.js"></script>
+            <script src="assets/js/components/scroll-animations.js"></script>
+            <script src="assets/js/components/hero-terminal-typing.js"></script>
+            <script src="assets/js/components/life-typing.js"></script>
             <script src="assets/js/components/editor.js"></script>
             <script src="assets/js/components/carousel.js"></script>
+            <script src="assets/js/components/technologies.js"></script>
             <script src="assets/js/main.js"></script>
 </body>
 

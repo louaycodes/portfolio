@@ -190,6 +190,50 @@
     }
 }
 
+/* Terminal Cursor */
+.terminal-cursor {
+    color: #27c93f;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+/* Code Line Styling */
+.code-line {
+    margin-bottom: 4px;
+    font-family: var(--font-mono);
+    line-height: 1.6;
+}
+
+/* Syntax Highlighting */
+.keyword {
+    color: #cc7832;
+}
+
+.variable {
+    color: #9876aa;
+}
+
+.constant {
+    color: #9876aa;
+    font-weight: 600;
+}
+
+.function {
+    color: #ffc66d;
+}
+
+.number {
+    color: #6897bb;
+}
+
+.hex {
+    color: #6897bb;
+}
+
+.plain {
+    color: #a9b7c6;
+}
+
 /* Hero Visual - Profile */
 .hero-visual {
     position: relative;

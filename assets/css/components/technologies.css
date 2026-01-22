@@ -1,0 +1,174 @@
+/* Technologies Section - macOS inspired grid */
+.technologies-section {
+    padding: var(--spacing-xxl) 0;
+    background: transparent;
+}
+
+.tech-window {
+    background: #0e1320;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.tech-window-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.tech-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.tech-control.red {
+    background: #ff5f56;
+}
+
+.tech-control.yellow {
+    background: #ffbd2e;
+}
+
+.tech-control.green {
+    background: #27c93f;
+}
+
+.tech-search-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 0 40px;
+    position: relative;
+}
+
+.tech-search-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 6px 12px 6px 32px;
+    color: #fff;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.tech-search-input:focus {
+    border-color: var(--primary-green);
+}
+
+.tech-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+.tech-window-body {
+    padding: 30px;
+    max-height: 600px;
+    overflow-y: auto;
+    background: radial-gradient(circle at center, #111827 0%, #0e1320 100%);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 30px;
+}
+
+/* Tech Card - Liberated View */
+.tech-card {
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.tech-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-8px) scale(1.05);
+}
+
+.tech-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: filter 0.3s ease;
+}
+
+.tech-card:hover .tech-icon-wrapper {
+    filter: drop-shadow(0 0 15px rgba(39, 201, 63, 0.4));
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+}
+
+.tech-info {
+    flex: 1;
+}
+
+.tech-name-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.tech-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-window-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tech-search-container {
+        margin: 0;
+        width: 100%;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}

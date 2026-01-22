@@ -1,9 +1,9 @@
-// Terminal Typing Animation - Realistic Code Typing Effect
-// Simulates live typing effect for the code snippet
+// Life.js Code Window Typing Animation
+// Simulates live typing effect for the life.js code snippet
 
-function initTerminalTyping() {
-    const terminalBody = document.querySelector('.terminal-body');
-    if (!terminalBody) return;
+function initLifeTyping() {
+    const codeContent = document.querySelector('.life-code-content');
+    if (!codeContent) return;
 
     // The code to type with syntax highlighting classes
     const codeLines = [
@@ -24,7 +24,8 @@ function initTerminalTyping() {
                 { text: 'eat', class: 'function' },
                 { text: '();', class: 'plain' }
             ],
-            pauseAfter: 300
+            pauseAfter: 300,
+            indent: 'indent-1'
         },
         {
             parts: [
@@ -36,7 +37,8 @@ function initTerminalTyping() {
                 { text: '7', class: 'number' },
                 { text: ');', class: 'plain' }
             ],
-            pauseAfter: 300
+            pauseAfter: 300,
+            indent: 'indent-1'
         },
         {
             parts: [
@@ -46,7 +48,8 @@ function initTerminalTyping() {
                 { text: '0xEXP10RE', class: 'hex' },
                 { text: ');', class: 'plain' }
             ],
-            pauseAfter: 300
+            pauseAfter: 300,
+            indent: 'indent-1'
         },
         {
             parts: [
@@ -57,7 +60,7 @@ function initTerminalTyping() {
     ];
 
     // Clear existing content
-    terminalBody.innerHTML = '';
+    codeContent.innerHTML = '';
 
     let currentLineIndex = 0;
     let currentPartIndex = 0;
@@ -82,7 +85,7 @@ function initTerminalTyping() {
             }
             // Wait 2 seconds, then restart the animation
             setTimeout(() => {
-                terminalBody.innerHTML = '';
+                codeContent.innerHTML = '';
                 currentLineIndex = 0;
                 currentPartIndex = 0;
                 currentCharIndex = 0;
@@ -100,7 +103,10 @@ function initTerminalTyping() {
         if (currentPartIndex === 0 && currentCharIndex === 0) {
             currentLineElement = document.createElement('div');
             currentLineElement.className = 'code-line';
-            terminalBody.appendChild(currentLineElement);
+            if (currentLine.indent) {
+                currentLineElement.classList.add(currentLine.indent);
+            }
+            codeContent.appendChild(currentLineElement);
         }
 
         const currentPart = currentLine.parts[currentPartIndex];
@@ -166,7 +172,7 @@ function initTerminalTyping() {
 
 // Initialize on page load
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTerminalTyping);
+    document.addEventListener('DOMContentLoaded', initLifeTyping);
 } else {
-    initTerminalTyping();
+    initLifeTyping();
 }
