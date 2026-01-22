@@ -1,0 +1,237 @@
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    width: 100%;
+}
+
+.hero-content {
+    text-align: left;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(39, 201, 63, 0.1);
+    color: var(--text-secondary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(39, 201, 63, 0.2);
+    margin-bottom: var(--spacing-lg);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #27c93f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #27c93f;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        box-shadow: 0 0 8px #27c93f;
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 0px #27c93f;
+    }
+
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px #27c93f;
+    }
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+}
+
+.text-lime {
+    color: var(--accent-lime);
+}
+
+.text-green {
+    color: var(--highlight-green);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #000;
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 28px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover,
+.btn-outline:hover {
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+}
+
+/* Terminal Widget */
+.terminal-widget {
+    background: #0e1320;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    max-width: 500px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.window-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.window-btn.red {
+    background: #ff5f56;
+}
+
+.window-btn.yellow {
+    background: #ffbd2e;
+}
+
+.window-btn.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.terminal-body {
+    padding: 20px;
+    color: #a9b7c6;
+}
+
+.typing-line {
+    margin-bottom: 8px;
+}
+
+.typing-line.success {
+    color: var(--primary-green);
+    margin-top: 12px;
+}
+
+.blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Hero Visual - Profile */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.profile-circle {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0px solid rgba(255, 255, 255, 0.05);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+}
+
+/* Profile Image Fix - Moved to hero component as it relates to hero visual */
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    /* Position head in frame */
+    border-radius: 50%;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content .hero-title {
+        font-size: 2.5rem;
+    }
+}

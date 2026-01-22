@@ -1,0 +1,444 @@
+/* Who I Am Section - MacOS Window Style */
+.who-i-am {
+    padding: var(--spacing-xxl) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.macos-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.macos-window {
+    width: 95vw;
+    /* Maximize width */
+    max-width: 100%;
+    margin: 0 auto;
+    background: #1e1e1e;
+    /* VS Code dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Tabs Container */
+.editor-tabs {
+    display: flex;
+    background: #252526;
+    height: 45px;
+    align-items: flex-end;
+    padding-left: 10px;
+    gap: 4px;
+}
+
+/* Folder Tab Style */
+.tab {
+    padding: 8px 24px;
+    color: #969696;
+    background: #2d2d2d;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px 8px 0 0;
+    height: 38px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    min-width: 140px;
+    border: none;
+    transform-origin: bottom center;
+    z-index: 1;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1) inset;
+    margin-right: 0;
+}
+
+/* Fix first child margin if needed, but margin-right on all creates the stack */
+
+.tab:hover {
+    background: #333333;
+    color: #cccccc;
+    transform: translateY(-2px);
+    z-index: 5;
+    /* Hover slightly above inactive */
+}
+
+.tab.active {
+    background: #1e1e1e;
+    /* Matches window content bg */
+    color: #ffffff;
+    font-weight: 600;
+    transform: translateY(0) scale(1.05);
+    /* Slight pop, no extreme layering */
+    /* Explicit pop forward effect */
+    z-index: 10;
+    /* Highest layer */
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    /* Stronger shadow to lift it */
+    border: none;
+}
+
+/* Active tab colored line at bottom to blend */
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #1e1e1e;
+}
+
+.tab-icon {
+    font-size: 1rem;
+}
+
+.tab-icon-img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.tab.active .tab-icon-img {
+    transform: scale(1.1);
+}
+
+.tab-close {
+    display: none;
+    /* Removed for folder style */
+}
+
+.macos-window:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Window Header */
+.window-header {
+    background: linear-gradient(to bottom, #2d3038, #25282e);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    position: relative;
+    height: 44px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    left: 16px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.control.red {
+    background-color: #ff5f56;
+    border: 1px solid #e0443e;
+}
+
+.control.yellow {
+    background-color: #ffbd2e;
+    border: 1px solid #dea123;
+}
+
+.control.green {
+    background-color: #27c93f;
+    border: 1px solid #1aab29;
+}
+
+/* Hover effects for controls (authentic feel) */
+.window-controls:hover .control.red::after {
+    content: '×';
+}
+
+.window-controls:hover .control.yellow::after {
+    content: '-';
+}
+
+.window-controls:hover .control.green::after {
+    content: '+';
+}
+
+.control::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 8px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.1s;
+    font-family: sans-serif;
+}
+
+.window-controls:hover .control::after {
+    opacity: 1;
+}
+
+.window-title {
+    flex: 1;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    user-select: none;
+    letter-spacing: 0.5px;
+}
+
+/* Window Content Split Layout */
+.window-body {
+    display: flex;
+    height: 500px;
+    /* Fixed height for content area */
+    background: #1e1e1e;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #252526;
+    border-right: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    flex-shrink: 0;
+}
+
+.file-list-container {
+    display: none;
+    /* Hidden by default */
+}
+
+.file-list-container.active {
+    display: block;
+    /* Shown when active */
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    cursor: pointer;
+    color: #cccccc;
+    font-size: 0.9rem;
+    gap: 8px;
+    transition: background 0.2s;
+}
+
+.file-item:hover {
+    background: #2a2d2e;
+}
+
+.file-item.active {
+    background: #37373d;
+    color: #ffffff;
+}
+
+.file-icon-img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
+.file-item:hover .file-icon-img,
+.file-item.active .file-icon-img {
+    opacity: 1;
+}
+
+/* Main View */
+.main-view {
+    flex: 1;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    overflow-y: auto;
+    position: relative;
+    background: #1e1e1e;
+}
+
+.file-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.file-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typography for inner content */
+.file-heading {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.file-text {
+    color: #cccccc;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.file-list-content {
+    list-style: none;
+    padding: 0;
+}
+
+.file-list-content li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    color: #cccccc;
+}
+
+.bullet {
+    position: absolute;
+    left: 0;
+    color: #569cd6;
+    /* VS Code blue */
+    font-family: var(--font-mono);
+}
+
+.highlight {
+    color: #4ec9b0;
+    /* VS Code class color */
+    text-decoration: none;
+}
+
+.highlight-blue {
+    color: #569cd6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .window-body {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .main-view {
+        padding: var(--spacing-md);
+        min-height: 300px;
+    }
+}
+
+/* Window Content Area */
+.window-content {
+    /* Main container for window body */
+    position: relative;
+    background: #1e1e1e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .macos-window {
+        width: 100%;
+        margin: 0;
+        border-radius: 8px;
+    }
+
+    .window-controls {
+        gap: 6px;
+    }
+
+    .window-title {
+        font-size: 0.85rem;
+    }
+}
+
+/* Overview Card Styles */
+.overview-card {
+    background: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    max-width: 100%;
+}
+
+.overview-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.overview-icon {
+    color: #FFBD2E;
+    /* Yellow/Orange */
+}
+
+.overview-title {
+    color: #27C93F;
+    /* Green */
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.overview-text {
+    color: #d4d4d4;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #FFBD2E;
+    /* Yellow/Orange */
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.read-more:hover {
+    opacity: 0.8;
+}
+
+.chevron-down {
+    transition: transform 0.2s;
+}
+
+.read-more:hover .chevron-down {
+    transform: translateY(2px);
+}

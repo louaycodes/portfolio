@@ -1,0 +1,82 @@
+/* Projects Section (Carousel Revamp) */
+.projects-section {
+    padding: var(--spacing-xxl) 0;
+    background: transparent;
+    /* Remove radial gradient overlap preference */
+}
+
+.carousel-track {
+    display: flex;
+    /* Back to flex for row layout */
+    justify-content: center;
+    gap: var(--spacing-lg);
+    overflow: visible;
+    /* Show neighbors */
+    flex-wrap: wrap;
+    /* Fallback for mobile */
+}
+
+@media (min-width: 1024px) {
+    .carousel-track {
+        flex-wrap: nowrap;
+    }
+}
+
+.project-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    /* Reset old styles */
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    grid-area: auto;
+    /* Remove grid positioning */
+}
+
+.project-image {
+    height: 200px;
+}
+
+/* Project Card Variants */
+.carousel-track .project-card:nth-child(1) .project-image {
+    background: #1e1e1e;
+    /* Dark code bg */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-track .project-card:nth-child(2) .project-image {
+    background: #171c2c;
+    /* Dark blue/indigo */
+}
+
+.carousel-track .project-card:nth-child(3) .project-image {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    /* Bright Cyan/Blue */
+}
+
+/* Specific icon styling overrides */
+.carousel-track .project-card:nth-child(1) .placeholder-img {
+    opacity: 0.5;
+}
+
+.carousel-track .project-card:nth-child(2) .placeholder-img {
+    transform: scale(0.8);
+}
+
+.carousel-track .project-card:nth-child(3) .placeholder-img {
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-card {
+        min-width: 100%;
+    }
+}
