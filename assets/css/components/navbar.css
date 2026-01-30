@@ -10,7 +10,8 @@
     right: 0;
     z-index: 100;
     backdrop-filter: blur(10px);
-    background: rgba(5, 10, 20, 0.8);
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .logo {
@@ -50,6 +51,35 @@
 }
 
 .btn-cta:hover {
-    background-color: rgba(38, 198, 218, 0.15);
+    background-color: var(--btn-cta);
+    opacity: 0.9;
     box-shadow: 0 0 15px rgba(38, 198, 218, 0.2);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Ensure only one icon is visible at a time (handled by JS, but default state here) */
+.moon-icon {
+    display: none;
 }

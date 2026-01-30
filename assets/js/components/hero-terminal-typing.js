@@ -93,7 +93,7 @@ function initHeroTerminalTyping() {
     function tick() {
         // 1. Check if we finished all lines
         if (lineIndex >= lines.length) {
-            const pauseBeforeRestart = 1200 + Math.random() * 600;
+            const pauseBeforeRestart = 2000 + Math.random() * 500;
             timeoutId = setTimeout(() => {
                 terminal.innerHTML = '';
                 lineIndex = 0;
@@ -122,8 +122,8 @@ function initHeroTerminalTyping() {
             // Logic: Increment charIndex
             charIndex++;
 
-            // Random typing speed 30-80ms
-            const delay = 30 + Math.random() * 50;
+            // Speeded up typing speed 40-80ms
+            const delay = 40 + Math.random() * 40;
             timeoutId = setTimeout(tick, delay);
         } else {
             // Line complete
@@ -133,8 +133,8 @@ function initHeroTerminalTyping() {
             lineIndex++;
             charIndex = 0;
 
-            // Pause inter-ligne 300-500ms
-            const interLinePause = 300 + Math.random() * 200;
+            // Speeded up inter-line pause 600-1000ms
+            const interLinePause = 600 + Math.random() * 400;
             timeoutId = setTimeout(tick, interLinePause);
         }
     }

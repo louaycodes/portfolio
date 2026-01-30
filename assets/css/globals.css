@@ -19,6 +19,7 @@
     --btn-cta: #193c47;
     --btn-cta-text: #26c6da;
     --card-border: rgba(255, 255, 255, 0.1);
+    --navbar-bg: rgba(5, 10, 20, 0.8);
 
     /* Gradients (kept for legacy support if needed) */
     --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -40,6 +41,21 @@
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
+}
+
+[data-theme="light"] {
+    --bg-dark: #f8f9fa;
+    --bg-card: #ffffff;
+    --text-primary: #1a1f2c;
+    --text-secondary: #4a5568;
+    --btn-primary: #e2e8f0;
+    --btn-primary-hover: #cbd5e0;
+    --btn-cta: #0d9488;
+    --btn-cta-text: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --section-bg-alt: #f1f5f9;
+    --navbar-bg: rgba(255, 255, 255, 0.85);
+    /* For alternating sections if needed */
 }
 
 body {

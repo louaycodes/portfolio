@@ -169,6 +169,8 @@
 .terminal-body {
     padding: 20px;
     color: #a9b7c6;
+    min-height: 260px;
+    /* Static height to fit all lines without jumping */
 }
 
 .typing-line {
