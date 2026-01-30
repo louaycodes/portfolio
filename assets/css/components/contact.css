@@ -10,13 +10,16 @@
 
 /* Contact Grid */
 .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
     margin-bottom: 50px;
 }
 
 .contact-card {
+    flex: 0 1 calc(50% - 10px);
+    max-width: 500px;
     background: #161b22;
     background-image: radial-gradient(#30363d 1px, transparent 1px);
     background-size: 20px 20px;
@@ -80,6 +83,9 @@
     font-size: 13px;
     font-weight: 500;
     transition: border-color 0.2s;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .contact-card:hover .contact-action-btn {
@@ -89,9 +95,9 @@
 /* Social Row */
 .social-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-top: 30px;
-    gap: 10px;
+    gap: 24px;
 }
 
 .social-item {
@@ -131,8 +137,8 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .contact-card {
+        flex: 0 1 100%;
     }
 
     .social-row {

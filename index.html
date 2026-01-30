@@ -991,7 +991,7 @@
                                         </svg></span>
                                 </div>
                             </div>
-                            <button class="contact-action-btn">Send Text</button>
+                            <a href="https://wa.me/21698202263" target="_blank" class="contact-action-btn">Send Text</a>
                         </div>
 
                         <!-- Email Address -->
@@ -1008,10 +1008,10 @@
                                     <span class="contact-value">louayzorai24@gmail.com</span>
                                 </div>
                             </div>
-                            <button class="contact-action-btn">Send Email</button>
+                            <a href="mailto:louayzorai24@gmail.com" class="contact-action-btn">Send Email</a>
                         </div>
 
-                        <!-- Video Call -->
+                        <!-- Video Call - Google Calendar Appointment Scheduling -->
                         <div class="contact-card">
                             <div class="contact-card-content">
                                 <div class="contact-icon-box">
@@ -1025,30 +1025,34 @@
                                     <span class="contact-value">Google Meet</span>
                                 </div>
                             </div>
-                            <button class="contact-action-btn">Schedule Call</button>
+                            <!-- Google Calendar Appointment Scheduling begin -->
+                            <link href="https://calendar.google.com/calendar/scheduling-button-script.css"
+                                rel="stylesheet">
+                            <script src="https://calendar.google.com/calendar/scheduling-button-script.js"
+                                async></script>
+                            <script>
+                                (function () {
+                                    var target = document.currentScript;
+                                    window.addEventListener('load', function () {
+                                        calendar.schedulingButton.load({
+                                            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0qr_XjHfeiDjM4Excx2QsB5zks_kas15FgTKXXJ37LW39c2k1mRLfynVzW5PtU39NnmPZpbW9G?gv=true',
+                                            color: '#039BE5',
+                                            label: 'Schedule Call',
+                                            target,
+                                        });
+                                    });
+                                })();
+                            </script>
+                            <!-- end Google Calendar Appointment Scheduling -->
                         </div>
 
-                        <!-- Discord -->
-                        <div class="contact-card">
-                            <div class="contact-card-content">
-                                <div class="contact-icon-box">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
-                                    </svg>
-                                </div>
-                                <div class="contact-info">
-                                    <span class="contact-label">Add on</span>
-                                    <span class="contact-value">Discord</span>
-                                </div>
-                            </div>
-                            <button class="contact-action-btn">Add</button>
-                        </div>
+
                     </div>
 
                     <div class="social-row">
                         <!-- LinkedIn -->
-                        <a href="#" class="social-item">
+                        <a href="https://www.linkedin.com/in/louay-zorai-aa5583262/" target="_blank"
+                            class="social-item">
                             <div class="social-icon-wrapper">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -1059,7 +1063,7 @@
                         </a>
 
                         <!-- GitHub -->
-                        <a href="#" class="social-item">
+                        <a href="https://github.com/louaycodes" target="_blank" class="social-item">
                             <div class="social-icon-wrapper">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -1082,7 +1086,7 @@
 
 
                         <!-- Instagram -->
-                        <a href="#" class="social-item">
+                        <a href="https://www.instagram.com/louayzorai/" target="_blank" class="social-item">
                             <div class="social-icon-wrapper">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -1127,4 +1131,5 @@
 
 <script src="assets/js/theme.js"></script>
 </body>
+
 </html>
