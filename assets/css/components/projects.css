@@ -243,3 +243,111 @@
         padding-top: 0;
     }
 }
+
+/* CTA Section Cloned from sended link */
+.cta-section {
+    padding: 0 0 80px 0;
+}
+
+.cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(75, 85, 99, 0.5);
+    /* gray-600/50 */
+    background: rgba(42, 52, 65, 0.3);
+    /* primary-content-background/30 */
+    padding: 32px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    /* shadow-lg */
+    backdrop-filter: blur(4px);
+    text-align: center;
+}
+
+.cta-title {
+    margin-bottom: 16px;
+    font-size: 3rem;
+    /* text-3xl md:text-5xl */
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(19, 178, 118);
+    /* primary-500 #13b276 */
+}
+
+.cta-description {
+    margin: 0 auto 40px auto;
+    max-width: 56rem;
+    /* max-w-4xl */
+    font-size: 1.125rem;
+    /* text-lg */
+    color: rgb(209, 213, 219);
+    /* text-gray-300 */
+}
+
+.cta-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    /* Context for overlay */
+}
+
+@media (min-width: 640px) {
+    .cta-button-container {
+        flex-direction: row;
+    }
+}
+
+.cta-calendar-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(45, 209, 110, 0.4);
+    background: rgba(42, 52, 65, 0.2);
+    padding: 16px 48px;
+    font-size: 1.125rem;
+    /* text-lg */
+    font-weight: 600;
+    color: rgb(179, 255, 179);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-calendar-btn:hover {
+    transform: scale(1.05);
+}
+
+.cta-btn-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+/* Force Google Calendar Button in Overlay to fill space */
+#google-cal-overlay-container iframe,
+#google-cal-overlay-container .google-calendar-appointment-scheduling-button {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+@media (max-width: 768px) {
+    .cta-title {
+        font-size: 1.875rem;
+        /* text-3xl */
+    }
+
+    .cta-calendar-btn {
+        width: 100%;
+        padding: 16px 24px;
+    }
+}

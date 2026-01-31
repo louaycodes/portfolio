@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Louay Zorai</title>
+    <meta name="description" content="Projects built by Louay Zorai - Cloud Engineer & AI Enthusiast">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Inline styles for page specific adjustments if needed, 
+           but mostly relying on main.css */
+        .page-header {
+            padding-top: 120px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Ensure footer sticks to bottom if content is short */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .projects-page-content {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Louay Zorai</a>
+        <div class="nav-links">
+            <a href="index.html#about" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link active">Projects</a>
+            <a href="index.html#skills" class="nav-link">Skills</a>
+            <a href="index.html#blog" class="nav-link">Blog</a>
+            <a href="index.html#contact" class="btn-cta">Contact Me</a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="projects-page-content">
+        <div class="container">
+            <header class="page-header">
+                <h1 class="section-title">All Projects</h1>
+                <p class="section-subtitle">A collection of my work, experiments, and open source contributions.</p>
+            </header>
+
+            <div class="projects-grid" style="margin-top: 0; margin-bottom: 80px;">
+
+                <!-- Project Card 1: AI Prompt Manager -->
+                <div class="project-card">
+                    <div class="score-badge">97</div>
+                    <div class="project-image">
+                        <div class="placeholder-img dark-code"></div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">AI Prompt Manager</h3>
+                        <span class="project-date">October 2025</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag orange">AI Native App</span>
+                        <span class="category-tag orange">Utility</span>
+                    </div>
+                    <p class="project-description">
+                        An AI-native utility embedded directly inside ChatGPT that helps users turn unclear or
+                        incomplete requests into clear, structured instructions before content is generated.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastMCP</span>
+                        <span class="tech-tag">Langbase</span>
+                        <span class="tech-tag count">+20</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+                <!-- Project Card 2: AI Knowledge Studio -->
+                <div class="project-card">
+                    <div class="score-badge">96</div>
+                    <div class="project-image">
+                        <div class="placeholder-img green-chart">
+                            <div class="unavailable-text">Image Unavailable</div>
+                        </div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">AI Knowledge Studio</h3>
+                        <span class="project-date">December 2025</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag orange">AI Utility</span>
+                        <span class="category-tag orange">Analytics</span>
+                    </div>
+                    <p class="project-description">
+                        A natural-language analytics layer that lets teams ask questions over massive metrics data
+                        and get accurate, explainable answers in seconds.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MindsDB</span>
+                        <span class="tech-tag">Langbase</span>
+                        <span class="tech-tag">LLAMA</span>
+                        <span class="tech-tag count">+11</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+                <!-- Project Card 3: AI Voice Agents Platform -->
+                <div class="project-card">
+                    <div class="score-badge">95</div>
+                    <div class="project-image">
+                        <div class="placeholder-img purple-ui"></div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">AI Voice Agents Platform</h3>
+                        <span class="project-date">October 2023</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag green">Web App</span>
+                        <span class="category-tag green">SDK</span>
+                        <span class="category-tag green">API</span>
+                    </div>
+                    <p class="project-description">
+                        A plug-and-play platform for integrating an AI-powered voice user interface (VUI) directly on
+                        top of existing applications.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">FastMCP</span>
+                        <span class="tech-tag">PineconeDB</span>
+                        <span class="tech-tag count">+15</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+                <!-- Project Card 4: Cloud Infrastructure Automation -->
+                <div class="project-card">
+                    <div class="score-badge">94</div>
+                    <div class="project-image">
+                        <div class="placeholder-img dark-code"></div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">Infra Automation</h3>
+                        <span class="project-date">July 2024</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag orange">DevOps</span>
+                        <span class="category-tag orange">IaC</span>
+                    </div>
+                    <p class="project-description">
+                        Automated infrastructure provisioning using Terraform and Ansible across multi-cloud
+                        environments, reducing deployment time by 80%.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag count">+5</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+                <!-- Project Card 5: Real-time Data Pipeline -->
+                <div class="project-card">
+                    <div class="score-badge">92</div>
+                    <div class="project-image">
+                        <div class="placeholder-img green-chart"></div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">Data Pipeline</h3>
+                        <span class="project-date">March 2024</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag orange">Big Data</span>
+                        <span class="category-tag orange">Streaming</span>
+                    </div>
+                    <p class="project-description">
+                        High-throughput streaming data pipeline processing over 1M events per minute using Kafka and
+                        Spark Streaming with sub-second latency.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">Spark</span>
+                        <span class="tech-tag">Scala</span>
+                        <span class="tech-tag count">+8</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+                <!-- Project Card 6: E-Commerce Microservices -->
+                <div class="project-card">
+                    <div class="score-badge">90</div>
+                    <div class="project-image">
+                        <div class="placeholder-img purple-ui"></div>
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">Shop Microservices</h3>
+                        <span class="project-date">January 2024</span>
+                    </div>
+                    <div class="category-tags">
+                        <span class="category-tag green">Backend</span>
+                        <span class="category-tag green">Microservices</span>
+                    </div>
+                    <p class="project-description">
+                        Scalable e-commerce backend built with Spring Boot microservices, ensuring high availability and
+                        fault tolerance during peak loads.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">K8s</span>
+                        <span class="tech-tag count">+12</span>
+                    </div>
+                    <button class="view-details-btn">View Details ></button>
+                </div>
+
+            </div>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="cta-card">
+                    <h2 class="cta-title">Let's Build Something Amazing Together</h2>
+                    <p class="cta-description">
+                        Let's collaborate to build innovative, high-performance software solutions tailored to your
+                        needs.
+                        From concept to deployment, I deliver excellence.
+                    </p>
+                    <div class="cta-button-container">
+                        <div class="cta-calendar-btn">
+                            <svg class="cta-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 4.5Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            Let's Have a Call and build together
+                        </div>
+                        <!-- Off-screen Container for Google Calendar Button -->
+                        <div id="google-cal-worker"
+                            style="position: absolute; left: -9999px; top: -9999px; visibility: hidden;"></div>
+                    </div>
+
+                    <!-- Google Calendar Scheduling Script -->
+                    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                    <script>
+                        (function () {
+                            window.addEventListener('load', function () {
+                                // 1. Load Google Calendar
+                                // We provide a target, but if it ignores it, we'll find it anyway.
+                                var workerContainer = document.getElementById('google-cal-worker');
+                                calendar.schedulingButton.load({
+                                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0qr_XjHfeiDjM4Excx2QsB5zks_kas15FgTKXXJ37LW39c2k1mRLfynVzW5PtU39NnmPZpbW9G?gv=true',
+                                    color: '#039BE5',
+                                    label: 'Schedule Call',
+                                    target: workerContainer,
+                                });
+
+                                // 2. Robust "Hijack" Logic
+                                var customBtn = document.querySelector('.cta-calendar-btn');
+                                var googleBtnRef = null;
+
+                                function findAndHideGoogleBtn() {
+                                    if (googleBtnRef) return; // Already found
+
+                                    // Search for elements with "Schedule Call" text
+                                    // Google button usually has a specific class or is a div/button
+                                    // Excluding our own button
+                                    var candidates = document.body.querySelectorAll('*');
+                                    for (var i = 0; i < candidates.length; i++) {
+                                        var el = candidates[i];
+                                        // Check if it's the Google button (has text 'Schedule Call', is not our button, and is likely a container or button)
+                                        // We check childNodes to ensure we get the container, not just the text node's parent if it's deep.
+                                        // Google button is usually a div with role="button" or an iframe wrapper.
+                                        if (el !== customBtn && !customBtn.contains(el) && el.textContent === 'Schedule Call') {
+
+                                            // Make sure it's the outermost clickable container if possible, 
+                                            // or just the element that looks like the button.
+                                            // The Google button usually has class "google-calendar-appointment-scheduling-button-wrapper" or similar
+
+                                            // We'll trust that if it has the text and isn't us, it's the one.
+                                            // We style it to be invisible but present.
+                                            el.style.position = 'absolute';
+                                            el.style.opacity = '0';
+                                            el.style.pointerEvents = 'none'; // We will trigger clicks programmatically
+                                            el.style.zIndex = '-1';
+
+                                            googleBtnRef = el;
+                                            console.log("Google button hijacked:", el);
+                                            return;
+                                        }
+                                    }
+                                }
+
+                                // Poll for the button
+                                var checkInterval = setInterval(findAndHideGoogleBtn, 500);
+
+                                // 3. Proxy Click
+                                if (customBtn) {
+                                    customBtn.addEventListener('click', function () {
+                                        if (googleBtnRef) {
+                                            googleBtnRef.click();
+                                        } else {
+                                            // Try one last desperate search immediately
+                                            findAndHideGoogleBtn();
+                                            if (googleBtnRef) googleBtnRef.click();
+                                            else console.error("Google button not found yet.");
+                                        }
+                                    });
+                                }
+                            });
+                        })();
+                    </script>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Louay Zorai. All rights reserved.</p>
+            <p class="footer-credit">Designed & Developed by Louay Zorai</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/theme.js"></script>
+    <script>
+        // Simple script to handle Navbar transparency on scroll (if needed)
+        // reusing logic from main.js if possible, but minimal here
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'var(--bg-dark)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'rgba(5, 10, 20, 0.8)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
