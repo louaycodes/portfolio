@@ -1,0 +1,155 @@
+            <section class="who-i-am" id="about">
+                <div class="container">
+                    <h2 class="section-title">Who I Am</h2>
+                    <p class="section-subtitle">My story and background.</p>
+                    <!-- Overview Card -->
+                    <div class="overview-card scroll-animate">
+                        <div class="overview-header">
+                            <svg class="overview-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span class="overview-title">Overview</span>
+                        </div>
+                        <p class="overview-text">
+                            I am a lifelong learner and problem solver, driven by a genuine passion for technology. My
+                            journey began at a young age, while attempting to bend my first computer to my ever-growing
+                            imagination. Those first experiments marked the beginning of a dedicated career in software
+                            engineering and entrepreneurship, where programming continues to be the ultimate canvas for
+                            my limitless creativity. Curiosity has always been the constant in my life, leading me to
+                            break things down, learn how they work, and turn that knowledge into what I build next.
+                        </p>
+                    </div>
+
+                    <div class="macos-wrapper scroll-animate">
+                        <div class="macos-window">
+                            <div class="window-header">
+                                <div class="window-controls">
+                                    <span class="control red"></span>
+                                    <span class="control yellow"></span>
+                                    <span class="control green"></span>
+                                </div>
+                                <div class="window-title">Who I Am</div>
+                            </div>
+                            <!-- Editor Tabs -->
+                            <div class="editor-tabs">
+                                <div class="tab active" data-tab="technical">
+                                    <img src="assets/images/folder-filled.png" alt="Technical" class="tab-icon-img">
+                                    Technical
+                                </div>
+                                <div class="tab" data-tab="personal">
+                                    <img src="assets/images/folder-outline.png" alt="Personal" class="tab-icon-img">
+                                    Personal
+                                </div>
+                            </div>
+                            <div class="window-content">
+                                <div class="window-body">
+                                    <!-- Sidebar (Left) -->
+                                    <div class="sidebar">
+                                        <!-- Technical Folder Files -->
+                                        <div class="file-list-container active" id="list-technical">
+                                            <div class="file-item active" data-file="opensource">
+                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
+                                                <span class="file-name">Opensource.txt</span>
+                                            </div>
+                                            <div class="file-item" data-file="specialization">
+                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
+                                                <span class="file-name">Specialization.txt</span>
+                                            </div>
+                                            <div class="file-item" data-file="expertise">
+                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
+                                                <span class="file-name">Expertise.txt</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Personal Folder Files -->
+                                        <div class="file-list-container" id="list-personal">
+                                            <div class="file-item" data-file="background">
+                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
+                                                <span class="file-name">Background.txt</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Main View (Right) -->
+                                    <div class="main-view">
+                                        <!-- File Content: Opensource.txt -->
+                                        <div class="file-content active" id="content-opensource">
+                                            <h3 class="file-heading">🔥 Open-Source Initiatives</h3>
+                                            <p class="file-text">
+                                                I have a strong commitment to the open-source community. My most notable
+                                                contribution is <a href="#" class="highlight">Laradock.io</a>, a full
+                                                PHP development environment for Docker. It has been used by thousands of
+                                                developers to simplify their workflow.
+                                                <br><br>
+                                                In addition, I created <a href="#" class="highlight">Apiato</a>, a
+                                                flawless framework for building scalable APIs on top of Laravel,
+                                                designed to speed up development while maintaining code quality.
+                                                <br><br>
+                                                My work also includes <a href="#" class="highlight">Porto</a>, a
+                                                software architectural pattern that helps developers organize their code
+                                                in a highly modular way.
+                                            </p>
+                                        </div>
+
+                                        <!-- File Content: Specialization.txt -->
+                                        <div class="file-content" id="content-specialization">
+                                            <h3 class="file-heading" style="color: #4facfe;">⚡ Cloud & AI Specialization
+                                            </h3>
+                                            <p class="file-text">
+                                                My focus lies at the intersection of <span class="highlight-blue">Cloud
+                                                    Infrastructure</span> and <span class="highlight-blue">Artificial
+                                                    Intelligence</span>.
+                                                <br><br>
+                                                I specialize in building robust <strong>RAG (Retrieval-Augmented
+                                                    Generation)</strong> systems that allow AI models to interact with
+                                                private data securely and efficiently.
+                                                <br><br>
+                                                I also have deep experience in <strong>MLOps</strong>, deploying and
+                                                monitoring machine learning models using Kubernetes and Kubeflow,
+                                                ensuring they perform reliably in production environments.
+                                            </p>
+                                        </div>
+
+                                        <!-- File Content: Expertise.txt -->
+                                        <div class="file-content" id="content-expertise">
+                                            <h3 class="file-heading" style="color: #ff5f56;">🛠️ Technical Expertise
+                                            </h3>
+                                            <ul class="file-list-content">
+                                                <li><span class="bullet">></span> <strong>Languages:</strong> Python
+                                                    (Advanced), TypeScript, Go, PHP.</li>
+                                                <li><span class="bullet">></span> <strong>Cloud & DevOps:</strong> AWS,
+                                                    Google Cloud, Docker, Kubernetes, Terraform, CI/CD pipelines.</li>
+                                                <li><span class="bullet">></span> <strong>AI/ML Frameworks:</strong>
+                                                    PyTorch, TensorFlow, LangChain, Hugging Face Transformers.</li>
+                                                <li><span class="bullet">></span> <strong>Databases:</strong>
+                                                    PostgreSQL, MongoDB, Redis, Vector Databases (Pinecone, ChromaDB).
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- File Content: Background.txt -->
+                                        <div class="file-content" id="content-background">
+                                            <h3 class="file-heading" style="color: #a6e22e;">🌱 My Background</h3>
+                                            <p class="file-text">
+                                                My journey began with a curiosity for how systems work, which led me to
+                                                Software Engineering. Over the years, I've evolved from a Full Stack Web
+                                                Developer to a specialized Cloud Engineer with a passion for AI.
+                                                <br><br>
+                                                I believe in lifelong learning and constantly challenge myself with new
+                                                technologies. Beyond coding, I enjoy mentoring upcoming developers and
+                                                sharing knowledge through blog posts and community talks.
+                                                <br><br>
+                                                I am currently Open to Work and looking for opportunities to leverage my
+                                                skills in a dynamic team environment.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
