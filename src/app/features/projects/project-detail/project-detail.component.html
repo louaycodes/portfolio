@@ -14,12 +14,15 @@
     <!-- Title -->
     <h1 class="detail-title">{{ project.title }}</h1>
 
-    <!-- Main screenshot -->
-    <img
-      [src]="project.images[0]"
-      [alt]="project.title + ' screenshot'"
-      class="detail-image"
-    />
+    <div class="images-gallery" *ngIf="imageList.length > 0">
+  <img
+    *ngFor="let img of imageList"
+    [src]="img"
+    [alt]="project.title + ' screenshot'"
+    class="gallery-image"
+    (click)="openLightbox(img)"
+  />
+</div>
 
     <!-- Description -->
     <p class="detail-description">{{ project.description }}</p>
@@ -28,7 +31,7 @@
     <div class="tech-section">
       <span class="tech-label">Tech Stack</span>
       <div class="tech-tags">
-        <span class="tech-tag" *ngFor="let tech of project.techStack">{{ tech }}</span>
+        <span class="tech-tag" *ngFor="let tech of project.techStackArray">{{ tech }}</span>
       </div>
     </div>
 
@@ -41,5 +44,22 @@
       View on GitHub
     </a>
 
+  </div>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" *ngIf="selectedImage" (click)="closeLightbox()">
+    <button class="lightbox-close" (click)="closeLightbox()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img
+      [src]="selectedImage"
+      class="lightbox-image"
+      (click)="$event.stopPropagation()"
+    />
   </div>
 </div>

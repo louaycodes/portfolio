@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Project, ProjectService } from '../../../shared/services/project.service';
+import { Project } from '../../../shared/services/project.service';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -10,22 +11,41 @@ import { Project, ProjectService } from '../../../shared/services/project.servic
 })
 export class ProjectDetailComponent implements OnInit {
   project: Project | undefined;
+  selectedImage: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectService: ProjectService
+    private apiService: ApiService
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (!id) {
+    const rawId = this.route.snapshot.paramMap.get('id');
+    if (!rawId) {
       this.router.navigate(['/projects']);
       return;
     }
-    this.project = this.projectService.getById(id);
-    if (!this.project) {
-      this.router.navigate(['/projects']);
-    }
+    const id = Number(rawId);
+    this.apiService.getProjectById(id).subscribe({
+      next: (project) => {
+        this.project = project;
+      },
+      error: () => {
+        this.router.navigate(['/projects']);
+      }
+    });
+  }
+
+  get imageList(): string[] {
+    if (!this.project?.images) return [];
+    return this.project.images.split(',').map((u: string) => u.trim()).filter((u: string) => u.length > 0);
+  }
+
+  openLightbox(url: string): void {
+    this.selectedImage = url;
+  }
+
+  closeLightbox(): void {
+    this.selectedImage = null;
   }
 }

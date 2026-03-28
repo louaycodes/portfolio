@@ -44,7 +44,7 @@
 }
 
 [data-theme="light"] {
-    --bg-dark: #f8f9fa;
+    --bg-dark: #f5f7fa;
     --bg-card: #ffffff;
     --text-primary: #1a1f2c;
     --text-secondary: #4a5568;
@@ -52,10 +52,11 @@
     --btn-primary-hover: #cbd5e0;
     --btn-cta: #0d9488;
     --btn-cta-text: #ffffff;
-    --card-border: rgba(0, 0, 0, 0.1);
-    --section-bg-alt: #f1f5f9;
+    --card-border: rgba(0, 0, 0, 0.08);
     --navbar-bg: rgba(255, 255, 255, 0.85);
-    /* For alternating sections if needed */
+    --primary-green: #1a9f38;
+    --accent-lime: #6d8c1f;
+    --highlight-green: #1a9f38;
 }
 
 body {
@@ -69,6 +70,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -97,4 +99,22 @@ body {
     text-align: center;
     margin-bottom: var(--spacing-xl);
     font-weight: 400;
+}
+
+/* ========================================
+   LIGHT MODE OVERRIDES
+   ======================================== */
+
+/* Body grid */
+[data-theme="light"] body,
+body[data-theme="light"] {
+    background-image: none;
+}
+
+/* Section titles */
+[data-theme="light"] .section-title {
+    background: linear-gradient(135deg, #1a1f2c 0%, #1a9f38 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

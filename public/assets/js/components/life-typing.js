@@ -1,17 +1,24 @@
-// Life.js Code Window Typing Animation
-// Simulates live typing effect for the life.js code snippet
+function initLifeTyping(name) {
+    name = name || 'Louay';
 
-function initLifeTyping() {
     const codeContent = document.querySelector('.life-code-content');
     if (!codeContent) return;
 
-    // The code to type with syntax highlighting classes
+    // Cancel any previous animation
+    if (codeContent._lifeTypingTimeout) {
+        clearTimeout(codeContent._lifeTypingTimeout);
+        codeContent._lifeTypingTimeout = null;
+    }
+
+    // Clear existing content
+    codeContent.innerHTML = '';
+
     const codeLines = [
         {
             parts: [
                 { text: 'while', class: 'keyword' },
                 { text: '(', class: 'plain' },
-                { text: 'Louay', class: 'variable' },
+                { text: name, class: 'variable' },
                 { text: ' == ', class: 'plain' },
                 { text: 'ALIVE', class: 'constant' },
                 { text: ') {', class: 'plain' }
@@ -59,9 +66,6 @@ function initLifeTyping() {
         }
     ];
 
-    // Clear existing content
-    codeContent.innerHTML = '';
-
     let currentLineIndex = 0;
     let currentPartIndex = 0;
     let currentCharIndex = 0;
@@ -69,7 +73,6 @@ function initLifeTyping() {
     let currentSpanElement = null;
     let cursorElement = null;
 
-    // Create blinking cursor
     function createCursor() {
         const cursor = document.createElement('span');
         cursor.className = 'terminal-cursor';
@@ -78,13 +81,9 @@ function initLifeTyping() {
     }
 
     function typeCharacter() {
-        // Animation complete - restart after a pause
         if (currentLineIndex >= codeLines.length) {
-            if (cursorElement) {
-                cursorElement.remove();
-            }
-            // Wait 2 seconds, then restart the animation
-            setTimeout(() => {
+            if (cursorElement) cursorElement.remove();
+            codeContent._lifeTypingTimeout = setTimeout(() => {
                 codeContent.innerHTML = '';
                 currentLineIndex = 0;
                 currentPartIndex = 0;
@@ -99,7 +98,6 @@ function initLifeTyping() {
 
         const currentLine = codeLines[currentLineIndex];
 
-        // Create new line element if needed
         if (currentPartIndex === 0 && currentCharIndex === 0) {
             currentLineElement = document.createElement('div');
             currentLineElement.className = 'code-line';
@@ -111,68 +109,50 @@ function initLifeTyping() {
 
         const currentPart = currentLine.parts[currentPartIndex];
 
-        // Create new span for this part if needed
         if (currentCharIndex === 0) {
             currentSpanElement = document.createElement('span');
             currentSpanElement.className = currentPart.class;
             currentLineElement.appendChild(currentSpanElement);
         }
 
-        // Type next character
         if (currentCharIndex < currentPart.text.length) {
             currentSpanElement.textContent += currentPart.text[currentCharIndex];
             currentCharIndex++;
 
-            // Add cursor at the end
             if (cursorElement) cursorElement.remove();
             cursorElement = createCursor();
             currentLineElement.appendChild(cursorElement);
 
-            // Variable typing speed with occasional pauses
-            let delay = 50 + Math.random() * 80; // 50-130ms base speed
-
-            // Add longer pauses after certain characters for realism
+            let delay = 50 + Math.random() * 80;
             const char = currentPart.text[currentCharIndex - 1];
             if (char === '(' || char === ')' || char === '{' || char === '}') {
-                delay += Math.random() * 100; // Extra pause after brackets
+                delay += Math.random() * 100;
             } else if (char === ' ') {
-                delay += Math.random() * 50; // Slight pause after spaces
+                delay += Math.random() * 50;
             } else if (char === ',' || char === ';') {
-                delay += Math.random() * 80; // Pause after punctuation
+                delay += Math.random() * 80;
             }
 
-            setTimeout(typeCharacter, delay);
+            codeContent._lifeTypingTimeout = setTimeout(typeCharacter, delay);
         } else {
-            // Part complete, move to next part
             currentCharIndex = 0;
             currentPartIndex++;
 
             if (currentPartIndex >= currentLine.parts.length) {
-                // Line complete, move to next line
                 currentPartIndex = 0;
                 currentLineIndex++;
 
-                // Remove cursor before line break
                 if (cursorElement) {
                     cursorElement.remove();
                     cursorElement = null;
                 }
 
-                setTimeout(typeCharacter, currentLine.pauseAfter);
+                codeContent._lifeTypingTimeout = setTimeout(typeCharacter, currentLine.pauseAfter);
             } else {
-                // Continue with next part
-                setTimeout(typeCharacter, 20);
+                codeContent._lifeTypingTimeout = setTimeout(typeCharacter, 20);
             }
         }
     }
 
-    // Start typing animation after a short delay
-    setTimeout(typeCharacter, 800);
-}
-
-// Initialize on page load
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLifeTyping);
-} else {
-    initLifeTyping();
+    codeContent._lifeTypingTimeout = setTimeout(typeCharacter, 800);
 }

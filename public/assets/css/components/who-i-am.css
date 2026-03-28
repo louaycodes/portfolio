@@ -442,3 +442,94 @@
 .read-more:hover .chevron-down {
     transform: translateY(2px);
 }
+
+/* ========================================
+   LIGHT MODE — Who I Am
+   ======================================== */
+[data-theme="light"] .macos-window {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .window-header {
+    background: linear-gradient(to bottom, #f7f8fa, #edf0f4);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .window-title {
+    color: #4a5568;
+}
+
+[data-theme="light"] .editor-tabs {
+    background: #edf0f4;
+}
+
+[data-theme="light"] .tab {
+    background: #e2e8f0;
+    color: #718096;
+    box-shadow: none;
+}
+
+[data-theme="light"] .tab:hover {
+    background: #f1f5f9;
+    color: #2d3748;
+}
+
+[data-theme="light"] .tab.active {
+    background: #ffffff;
+    color: #1a1f2c;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tab.active::after {
+    background: #ffffff;
+}
+
+[data-theme="light"] .window-body {
+    background: #ffffff;
+}
+
+[data-theme="light"] .sidebar {
+    background: #f7f8fa;
+    border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .file-item {
+    color: #4a5568;
+}
+
+[data-theme="light"] .file-item:hover {
+    background: #edf0f4;
+}
+
+[data-theme="light"] .file-item.active {
+    background: #e2e8f0;
+    color: #1a1f2c;
+}
+
+[data-theme="light"] .main-view {
+    background: #ffffff;
+}
+
+[data-theme="light"] .file-text {
+    color: #2d3748;
+}
+
+[data-theme="light"] .file-list-content li {
+    color: #2d3748;
+}
+
+[data-theme="light"] .overview-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .overview-text {
+    color: #4a5568;
+}
+
+[data-theme="light"] .window-content {
+    background: #ffffff;
+}

@@ -6,19 +6,25 @@
                         <span class="status-dot"></span> Open to Work
                     </div>
 
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="text-lime">Louay</span><br>
-                        <span class="text-green">Cloud Engineer</span> Student
-                    </h1>
-
-                    <p class="hero-description">
-                        Building scalable infrastructure and mastering the cloud by day, coding the future by night.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn-secondary">View Projects</a>
-                        <a href="#" class="btn-outline">Download CV</a>
+                    <div *ngIf="loading" class="hero-loading" style="margin: 40px 0;">
+                        <div class="spinner" style="width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.1); border-top: 2px solid #00E676; border-radius: 50%; animation: spin 1s linear infinite;"></div>
                     </div>
+
+                    <ng-container *ngIf="profile && !loading">
+                        <h1 class="hero-title">
+                            Hi, I'm <span class="text-lime">{{ profile.fullName.split(' ')[0] }}</span> {{ profile.fullName.split(' ').slice(1).join(' ') }}<br>
+                            <span class="text-green">{{ profile.title }}</span>
+                        </h1>
+
+                        <p class="hero-description">
+                            {{ profile.bio }}
+                        </p>
+
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn-secondary">View Projects</a>
+                            <a [href]="profile.cvUrl" target="_blank" class="btn-outline">Download CV</a>
+                        </div>
+                    </ng-container>
 
                     <!-- Terminal Widget -->
                     <div class="terminal-widget">
@@ -26,7 +32,7 @@
                             <span class="window-btn red"></span>
                             <span class="window-btn yellow"></span>
                             <span class="window-btn green"></span>
-                            <span class="terminal-title">louay-terminal — -zsh</span>
+                            <span class="terminal-title">{{ firstName.toLowerCase() }}-terminal — -zsh</span>
                         </div>
                         <div class="terminal-body" id="hero-terminal">
                             <!-- Content will be animated by JavaScript -->
@@ -35,8 +41,11 @@
                 </div>
 
                 <div class="hero-visual">
-                    <div class="profile-circle">
-                        <img src="assets/images/profile.jpg" alt="Louay Zorai" class="profile-img">
+                    <div class="profile-circle" *ngIf="profile && !loading">
+                        <img [src]="profile.photoUrl" [alt]="profile.fullName" class="profile-img">
+                    </div>
+                    <div class="profile-circle" *ngIf="loading" style="display: flex; align-items: center; justify-content: center;">
+                        <div class="spinner" style="width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.1); border-top: 2px solid #00E676; border-radius: 50%; animation: spin 1s linear infinite;"></div>
                     </div>
                 </div>
             </div>

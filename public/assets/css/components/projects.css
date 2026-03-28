@@ -351,3 +351,55 @@
         padding: 16px 24px;
     }
 }
+
+/* ========================================
+   LIGHT MODE — Projects
+   ======================================== */
+[data-theme="light"] .project-card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .project-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(26, 159, 56, 0.3);
+}
+
+[data-theme="light"] .project-title {
+    color: #1a1f2c;
+}
+
+[data-theme="light"] .project-description {
+    color: #4a5568;
+}
+
+[data-theme="light"] .project-image {
+    background: #e9ecef;
+}
+
+[data-theme="light"] .browse-all-btn {
+    background: #ffffff;
+    color: #1a1f2c;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .browse-all-btn:hover {
+    background: #f1f5f9;
+    border-color: rgba(26, 159, 56, 0.3);
+}
+
+[data-theme="light"] .cta-card {
+    background: rgba(241, 245, 249, 0.8);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .cta-description {
+    color: #4a5568;
+}
+
+[data-theme="light"] .cta-calendar-btn {
+    border-color: rgba(26, 159, 56, 0.3);
+    background: rgba(241, 245, 249, 0.5);
+    color: #1a9f38;
+}

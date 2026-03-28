@@ -79,7 +79,4 @@
     height: 20px;
 }
 
-/* Ensure only one icon is visible at a time (handled by JS, but default state here) */
-.moon-icon {
-    display: none;
-}
+/* Icon visibility is handled by Angular *ngIf — no CSS override needed */

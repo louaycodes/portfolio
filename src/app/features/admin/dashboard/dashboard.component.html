@@ -1,0 +1,255 @@
+<div class="dashboard-page">
+
+  <!-- Header -->
+  <header class="dash-header">
+    <span class="dash-logo">LZ<span class="dot">.</span> <span class="dash-label">Admin</span></span>
+    <button class="logout-btn" (click)="logout()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+        <polyline points="16 17 21 12 16 7"></polyline>
+        <line x1="21" y1="12" x2="9" y2="12"></line>
+      </svg>
+      Logout
+    </button>
+  </header>
+
+  <div class="dash-content">
+
+    <!-- Error Banner -->
+    <div class="error-banner" *ngIf="errorMessage">
+      {{ errorMessage }}
+      <button (click)="errorMessage = ''">✕</button>
+    </div>
+
+    <!-- Tabs Nav -->
+    <div class="dash-tabs" style="display: flex; gap: 1rem; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 12px;">
+      <button class="tab-btn" [style.color]="activeTab === 'projects' ? '#00e676' : '#888'" [style.fontWeight]="activeTab === 'projects' ? '600' : '400'" style="background: none; border: none; cursor: pointer; font-size: 1rem;" (click)="setTab('projects')">Projects</button>
+      <button class="tab-btn" [style.color]="activeTab === 'about' ? '#00e676' : '#888'" [style.fontWeight]="activeTab === 'about' ? '600' : '400'" style="background: none; border: none; cursor: pointer; font-size: 1rem;" (click)="setTab('about')">About Sections</button>
+      <button class="tab-btn" [style.color]="activeTab === 'profile' ? '#00e676' : '#888'" [style.fontWeight]="activeTab === 'profile' ? '600' : '400'" style="background: none; border: none; cursor: pointer; font-size: 1rem;" (click)="setTab('profile')">Profile</button>
+    </div>
+
+    <!-- PROJECTS TAB -->
+    <div *ngIf="activeTab === 'projects'">
+
+    <!-- Add button -->
+    <div class="dash-actions">
+      <button class="add-btn" (click)="openAddForm()" *ngIf="!showForm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Add New Project
+      </button>
+    </div>
+
+    <!-- Inline Add / Edit Form -->
+    <div class="project-form-card" *ngIf="showForm">
+      <h2 class="form-title">{{ editingProject ? 'Edit Project' : 'New Project' }}</h2>
+
+      <div class="form-grid">
+        <div class="form-group full">
+          <label>ID (URL slug)</label>
+          <input type="text" [(ngModel)]="form.id" placeholder="e.g. cluverse" [disabled]="!!editingProject" />
+        </div>
+        <div class="form-group full">
+          <label>Title</label>
+          <input type="text" [(ngModel)]="form.title" placeholder="Project title" />
+        </div>
+        <div class="form-group full">
+          <label>Description</label>
+          <textarea [(ngModel)]="form.description" rows="3" placeholder="Short description…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Tech Stack <span class="hint">(comma-separated)</span></label>
+          <input type="text" [(ngModel)]="form.techStackRaw" placeholder="Angular, Spring Boot, PostgreSQL" />
+        </div>
+        <div class="form-group">
+          <label>Images <span class="hint">(comma-separated URLs)</span></label>
+          <app-image-upload
+            folder="projects"
+            [multiple]="true"
+            [currentUrl]="form.imagesRaw"
+            (urlSelected)="form.imagesRaw = $event">
+          </app-image-upload>
+        </div>
+        <div class="form-group">
+          <label>GitHub URL</label>
+          <input type="text" [(ngModel)]="form.githubUrl" placeholder="https://github.com/..." />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="save-btn" (click)="submitForm()">
+          {{ editingProject ? 'Save Changes' : 'Create Project' }}
+        </button>
+        <button class="cancel-btn" (click)="cancelForm()">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Loading state -->
+    <div class="loading-state" *ngIf="loading">
+      <div class="spinner"></div>
+      <span>Loading projects…</span>
+    </div>
+
+    <!-- Projects List -->
+    <div class="projects-list" *ngIf="!loading">
+      <div class="project-row" *ngFor="let project of projects">
+        <div class="project-info">
+          <span class="project-name">{{ project.title }}</span>
+          <span class="project-stack">{{ project.techStack }}</span>
+        </div>
+        <div class="project-row-actions">
+          <button class="edit-btn" (click)="openEditForm(project)">Edit</button>
+          <button class="delete-btn" (click)="deleteProject(project)">Delete</button>
+        </div>
+      </div>
+
+      <div class="empty-state" *ngIf="projects.length === 0">
+        <p>No projects yet. Click "Add New Project" to get started.</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- ABOUT SECTIONS TAB -->
+    <div *ngIf="activeTab === 'about'">
+      <div class="dash-actions">
+        <button class="add-btn" (click)="openAddAboutForm()" *ngIf="!showAboutForm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Add New Section
+        </button>
+      </div>
+
+      <div class="project-form-card" *ngIf="showAboutForm">
+        <h2 class="form-title">{{ editingAbout ? 'Edit Section' : 'New Section' }}</h2>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Name (Sidebar Link)</label>
+            <input type="text" [(ngModel)]="aboutForm.name" placeholder="e.g. Expertise" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select [(ngModel)]="aboutForm.category" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #e1e7ef;">
+              <option value="TECHNICAL">TECHNICAL</option>
+              <option value="PERSONAL">PERSONAL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Display Order</label>
+            <input type="number" [(ngModel)]="aboutForm.displayOrder" placeholder="0" />
+          </div>
+          <div class="form-group full">
+            <label>Content (Full text or HTML)</label>
+            <textarea [(ngModel)]="aboutForm.content" rows="6" placeholder="Content text goes here..."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="save-btn" (click)="submitAboutForm()">{{ editingAbout ? 'Save Changes' : 'Create Section' }}</button>
+          <button class="cancel-btn" (click)="cancelAboutForm()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="loading-state" *ngIf="loadingAbout">
+        <div class="spinner"></div>
+        <span>Loading sections…</span>
+      </div>
+
+      <div class="projects-list" *ngIf="!loadingAbout">
+        <div class="project-row" *ngFor="let section of aboutSections">
+          <div class="project-info">
+            <span class="project-name">{{ section.name }}</span>
+            <span class="project-stack" [style.color]="section.category === 'TECHNICAL' ? '#4facfe' : '#a252fa'">
+              {{ section.category }}
+            </span>
+          </div>
+          <div class="project-row-actions">
+            <button class="edit-btn" (click)="openEditAboutForm(section)">Edit</button>
+            <button class="delete-btn" (click)="deleteAboutSection(section)">Delete</button>
+          </div>
+        </div>
+        <div class="empty-state" *ngIf="aboutSections.length === 0">
+          <p>No About sections yet.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE TAB -->
+    <div *ngIf="activeTab === 'profile'">
+      <div class="project-form-card" style="margin-top: 0;">
+        <h2 class="form-title">Edit Profile Information</h2>
+
+        <div class="error-banner" *ngIf="profileSuccessMessage" style="background: rgba(0, 230, 118, 0.1); border-color: rgba(0, 230, 118, 0.3); color: #00E676; margin-bottom: 20px;">
+          {{ profileSuccessMessage }}
+        </div>
+
+        <div class="loading-state" *ngIf="loadingProfile" style="margin: 20px 0;">
+          <div class="spinner"></div>
+          <span>Loading Profile...</span>
+        </div>
+
+        <div class="form-grid" *ngIf="!loadingProfile">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="profile.fullName" placeholder="Louay Zorai" />
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" [(ngModel)]="profile.title" placeholder="Cloud Engineering Student" />
+          </div>
+          <div class="form-group full">
+            <label>Bio</label>
+            <textarea [(ngModel)]="profile.bio" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Photo URL</label>
+            <app-image-upload
+              folder="profile"
+              [currentUrl]="profile.photoUrl"
+              (urlSelected)="profile.photoUrl = $event">
+            </app-image-upload>
+          </div>
+          <div class="form-group">
+            <label>CV PDF URL</label>
+            <input type="text" [(ngModel)]="profile.cvUrl" placeholder="https://..." />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="profile.email" placeholder="email@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" [(ngModel)]="profile.location" placeholder="City, Country" />
+          </div>
+          <div class="form-group">
+            <label>GitHub Username (or URL)</label>
+            <input type="text" [(ngModel)]="profile.github" />
+          </div>
+          <div class="form-group">
+            <label>LinkedIn (or URL)</label>
+            <input type="text" [(ngModel)]="profile.linkedin" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" [(ngModel)]="profile.phone" placeholder="+216 98 000 000" />
+          </div>
+          <div class="form-group">
+            <label>Instagram (URL)</label>
+            <input type="text" [(ngModel)]="profile.instagram" placeholder="https://instagram.com/..." />
+          </div>
+          <div class="form-group full">
+            <label>Google Calendar / Schedule Call URL</label>
+            <input type="text" [(ngModel)]="profile.googleMeetUrl" placeholder="https://calendar.google.com/..." />
+          </div>
+        </div>
+
+        <div class="form-actions" *ngIf="!loadingProfile" style="margin-top: 24px;">
+          <button class="save-btn" (click)="saveProfile()">Save Profile</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

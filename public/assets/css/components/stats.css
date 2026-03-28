@@ -255,3 +255,39 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   LIGHT MODE — Stats & MegaScript
+   ======================================== */
+[data-theme="light"] .megascript-window {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .megascript-window .window-header {
+    background: #f7f8fa;
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .megascript-window .window-body {
+    background: #ffffff;
+    color: #2d3748;
+}
+
+[data-theme="light"] .line-numbers {
+    color: #a0aec0;
+    border-right-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .megascript-window .window-title {
+    color: #4a5568;
+}
+
+[data-theme="light"] .stats-card:hover {
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .stats-info h3 {
+    color: #1a1f2c;
+}

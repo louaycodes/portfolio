@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -11,6 +12,9 @@ import { TechnologiesComponent } from './technologies/technologies.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProjectService } from './services/project.service';
+import { ApiService } from './services/api.service';
+import { AboutAdminService } from '../features/admin/services/about-admin.service';
+import { ProfileAdminService } from '../features/admin/services/profile-admin.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,8 @@ import { ProjectService } from './services/project.service';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     NavbarComponent,
@@ -38,7 +43,10 @@ import { ProjectService } from './services/project.service';
     FooterComponent
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    ApiService,
+    AboutAdminService,
+    ProfileAdminService
   ]
 })
 export class SharedModule { }

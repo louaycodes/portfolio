@@ -5,189 +5,24 @@
                 <p class="section-subtitle">A collection of my work, experiments, and open source contributions.</p>
             </header>
 
-            <!-- Dynamic cards from ProjectService -->
-            <div class="projects-grid" style="margin-top: 0; margin-bottom: 48px;">
-                <div class="project-card service-card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]" style="cursor: pointer;">
-                    <div class="project-image">
-                        <img [src]="project.images[0]" [alt]="project.title" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" />
+            <!-- Dynamic projects mapped from Spring Boot API -->
+            <div class="projects-grid" style="margin-top: 0; margin-bottom: 80px;">
+                <div class="project-card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]" style="cursor: pointer;">
+                    <div class="project-image" style="padding: 0;">
+                        <img [src]="project.imageUrl" [alt]="project.title" style="width:100%;height:100%;object-fit:cover;border-radius: 12px 12px 0 0;" />
                     </div>
-                    <div class="project-header">
+                    <div class="project-header" style="padding-top: 24px;">
                         <h3 class="project-title">{{ project.title }}</h3>
                     </div>
-                    <div class="tech-tags" style="margin-top: 8px;">
-                        <span class="tech-tag" *ngFor="let tech of project.techStack.slice(0, 2)">{{ tech }}</span>
-                    </div>
-                    <button class="view-details-btn" style="margin-top: 14px;">View Details &gt;</button>
-                </div>
-            </div>
-
-            <div class="projects-grid" style="margin-top: 0; margin-bottom: 80px;">
-
-                <!-- Project Card 1: AI Prompt Manager -->
-                <div class="project-card">
-                    <div class="score-badge">97</div>
-                    <div class="project-image">
-                        <div class="placeholder-img dark-code"></div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">AI Prompt Manager</h3>
-                        <span class="project-date">October 2025</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag orange">AI Native App</span>
-                        <span class="category-tag orange">Utility</span>
-                    </div>
                     <p class="project-description">
-                        An AI-native utility embedded directly inside ChatGPT that helps users turn unclear or
-                        incomplete requests into clear, structured instructions before content is generated.
+                        {{ project.description }}
                     </p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">FastMCP</span>
-                        <span class="tech-tag">Langbase</span>
-                        <span class="tech-tag count">+20</span>
+                        <span class="tech-tag" *ngFor="let tech of project.techStackArray?.slice(0, 4)">{{ tech }}</span>
+                        <span class="tech-tag count" *ngIf="project.techStackArray && project.techStackArray.length > 4">+{{ project.techStackArray.length - 4 }}</span>
                     </div>
-                    <button class="view-details-btn">View Details ></button>
+                    <button class="view-details-btn" style="margin-top: 14px;">View Details ></button>
                 </div>
-
-                <!-- Project Card 2: AI Knowledge Studio -->
-                <div class="project-card">
-                    <div class="score-badge">96</div>
-                    <div class="project-image">
-                        <div class="placeholder-img green-chart">
-                            <div class="unavailable-text">Image Unavailable</div>
-                        </div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">AI Knowledge Studio</h3>
-                        <span class="project-date">December 2025</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag orange">AI Utility</span>
-                        <span class="category-tag orange">Analytics</span>
-                    </div>
-                    <p class="project-description">
-                        A natural-language analytics layer that lets teams ask questions over massive metrics data
-                        and get accurate, explainable answers in seconds.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">MindsDB</span>
-                        <span class="tech-tag">Langbase</span>
-                        <span class="tech-tag">LLAMA</span>
-                        <span class="tech-tag count">+11</span>
-                    </div>
-                    <button class="view-details-btn">View Details ></button>
-                </div>
-
-                <!-- Project Card 3: AI Voice Agents Platform -->
-                <div class="project-card">
-                    <div class="score-badge">95</div>
-                    <div class="project-image">
-                        <div class="placeholder-img purple-ui"></div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">AI Voice Agents Platform</h3>
-                        <span class="project-date">October 2023</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag green">Web App</span>
-                        <span class="category-tag green">SDK</span>
-                        <span class="category-tag green">API</span>
-                    </div>
-                    <p class="project-description">
-                        A plug-and-play platform for integrating an AI-powered voice user interface (VUI) directly on
-                        top of existing applications.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">LangChain</span>
-                        <span class="tech-tag">FastMCP</span>
-                        <span class="tech-tag">PineconeDB</span>
-                        <span class="tech-tag count">+15</span>
-                    </div>
-                    <button class="view-details-btn">View Details ></button>
-                </div>
-
-                <!-- Project Card 4: Cloud Infrastructure Automation -->
-                <div class="project-card">
-                    <div class="score-badge">94</div>
-                    <div class="project-image">
-                        <div class="placeholder-img dark-code"></div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">Infra Automation</h3>
-                        <span class="project-date">July 2024</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag orange">DevOps</span>
-                        <span class="category-tag orange">IaC</span>
-                    </div>
-                    <p class="project-description">
-                        Automated infrastructure provisioning using Terraform and Ansible across multi-cloud
-                        environments, reducing deployment time by 80%.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Terraform</span>
-                        <span class="tech-tag">Ansible</span>
-                        <span class="tech-tag">AWS</span>
-                        <span class="tech-tag count">+5</span>
-                    </div>
-                    <button class="view-details-btn">View Details ></button>
-                </div>
-
-                <!-- Project Card 5: Real-time Data Pipeline -->
-                <div class="project-card">
-                    <div class="score-badge">92</div>
-                    <div class="project-image">
-                        <div class="placeholder-img green-chart"></div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">Data Pipeline</h3>
-                        <span class="project-date">March 2024</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag orange">Big Data</span>
-                        <span class="category-tag orange">Streaming</span>
-                    </div>
-                    <p class="project-description">
-                        High-throughput streaming data pipeline processing over 1M events per minute using Kafka and
-                        Spark Streaming with sub-second latency.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Kafka</span>
-                        <span class="tech-tag">Spark</span>
-                        <span class="tech-tag">Scala</span>
-                        <span class="tech-tag count">+8</span>
-                    </div>
-                    <button class="view-details-btn">View Details ></button>
-                </div>
-
-                <!-- Project Card 6: E-Commerce Microservices -->
-                <div class="project-card">
-                    <div class="score-badge">90</div>
-                    <div class="project-image">
-                        <div class="placeholder-img purple-ui"></div>
-                    </div>
-                    <div class="project-header">
-                        <h3 class="project-title">Shop Microservices</h3>
-                        <span class="project-date">January 2024</span>
-                    </div>
-                    <div class="category-tags">
-                        <span class="category-tag green">Backend</span>
-                        <span class="category-tag green">Microservices</span>
-                    </div>
-                    <p class="project-description">
-                        Scalable e-commerce backend built with Spring Boot microservices, ensuring high availability and
-                        fault tolerance during peak loads.
-                    </p>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">K8s</span>
-                        <span class="tech-tag count">+12</span>
-                    </div>
-                    <button class="view-details-btn">View Details ></button>
-                </div>
-
             </div>
 
             <!-- CTA Section -->

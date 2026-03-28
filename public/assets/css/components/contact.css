@@ -146,3 +146,51 @@
         justify-content: center;
     }
 }
+
+/* ========================================
+   LIGHT MODE — Contact
+   ======================================== */
+[data-theme="light"] .contact-section {
+    background: #f5f7fa;
+}
+
+[data-theme="light"] .contact-card {
+    background: #ffffff;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .contact-card:hover {
+    background-color: #fafbfc;
+}
+
+[data-theme="light"] .contact-label {
+    color: #718096;
+}
+
+[data-theme="light"] .contact-value {
+    color: #1a1f2c;
+}
+
+[data-theme="light"] .contact-action-btn {
+    background: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #2d3748;
+}
+
+[data-theme="light"] .social-icon-wrapper {
+    background: #ffffff;
+    background-image: none;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #1a1f2c;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .social-item:hover .social-icon-wrapper {
+    background-color: #f1f5f9;
+}
+
+[data-theme="light"] .social-name {
+    color: #4a5568;
+}

@@ -94,6 +94,12 @@
 .icon-btn:hover {
   color: #ffffff;
 }
+#theme-toggle {
+  transition: color 0.2s ease, transform 0.3s ease;
+}
+#theme-toggle:hover {
+  transform: rotate(20deg);
+}
 .icon-btn svg {
   width: 18px;
   height: 18px;
@@ -196,4 +202,59 @@
   0% { transform: translateY(0px) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(0deg); }
   100% { transform: translateY(-10px) rotate(135deg); }
+}
+
+/* ========================================
+   LIGHT MODE — Navbar
+   ======================================== */
+:host-context([data-theme="light"]) .nav,
+[data-theme="light"] .nav {
+  background-color: #ffffff;
+}
+
+:host-context([data-theme="light"]) .nav.affix,
+[data-theme="light"] .nav.affix {
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+:host-context([data-theme="light"]) .nav .logo a,
+[data-theme="light"] .nav .logo a {
+  color: #1a1f2c;
+}
+
+:host-context([data-theme="light"]) .nav-links li a,
+[data-theme="light"] .nav-links li a {
+  color: #4a5568;
+}
+
+:host-context([data-theme="light"]) .nav-links li a:hover,
+[data-theme="light"] .nav-links li a:hover {
+  color: #1a1f2c;
+}
+
+:host-context([data-theme="light"]) .nav-links li a.active,
+[data-theme="light"] .nav-links li a.active {
+  color: #1a9f38;
+}
+
+:host-context([data-theme="light"]) .icon-btn,
+[data-theme="light"] .icon-btn {
+  color: #4a5568;
+}
+
+:host-context([data-theme="light"]) .icon-btn:hover,
+[data-theme="light"] .icon-btn:hover {
+  color: #1a1f2c;
+}
+
+:host-context([data-theme="light"]) .navTrigger i,
+[data-theme="light"] .navTrigger i {
+  background-color: #4a5568;
+}
+
+@media screen and (max-width: 768px) {
+  :host-context([data-theme="light"]) .desktop-nav,
+  [data-theme="light"] .desktop-nav {
+    background-color: #ffffff;
+  }
 }

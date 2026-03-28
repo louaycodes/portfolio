@@ -16,8 +16,7 @@ declare const initTechnologiesSearch: any;
 export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
-      if (typeof initHeroTerminalTyping === 'function') initHeroTerminalTyping();
-      if (typeof initLifeTyping === 'function') initLifeTyping();
+      // Terminal typing is handled by HeroComponent after API responds
       if (typeof initEditor === 'function') initEditor();
       if (typeof initCarousel === 'function') initCarousel();
       if (typeof initScrollAnimations === 'function') initScrollAnimations();

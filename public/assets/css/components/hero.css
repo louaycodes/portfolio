@@ -281,3 +281,39 @@
         font-size: 2.5rem;
     }
 }
+
+/* ========================================
+   LIGHT MODE — Hero
+   ======================================== */
+[data-theme="light"] .btn-secondary {
+    background: #1a1f2c;
+    color: #ffffff;
+}
+
+[data-theme="light"] .btn-outline {
+    color: #1a1f2c;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .btn-outline:hover {
+    border-color: #1a1f2c;
+}
+
+[data-theme="light"] .terminal-widget {
+    background: #1a202c;
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .terminal-body {
+    color: #a9b7c6;
+}
+
+[data-theme="light"] .profile-circle {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%);
+}
+
+[data-theme="light"] .status-badge {
+    background: rgba(26, 159, 56, 0.08);
+    border-color: rgba(26, 159, 56, 0.2);
+}

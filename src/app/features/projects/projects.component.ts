@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
-import { Project, ProjectService } from '../../shared/services/project.service';
+import { Project } from '../../shared/services/project.service';
+import { ApiService } from '../../shared/services/api.service';
 
 declare const calendar: any;
 
@@ -12,10 +13,12 @@ declare const calendar: any;
 export class ProjectsComponent implements OnInit, AfterViewInit {
   projects: Project[] = [];
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.projects = this.projectService.getAll();
+    this.apiService.getProjects().subscribe(data => {
+      this.projects = data.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+    });
   }
 
   ngAfterViewInit() {

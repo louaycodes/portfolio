@@ -1,0 +1,28 @@
+<div class="image-upload-wrapper">
+  <!-- Preview Area (Single Image) -->
+  <div *ngIf="!multiple && displayUrl" class="image-preview" [style.backgroundImage]="'url(' + displayUrl + ')'"></div>
+
+  <!-- Image Gallery (Multiple Images) -->
+  <div class="image-gallery" *ngIf="multiple && urls.length > 0">
+    <div class="thumbnail-wrapper" *ngFor="let url of urls; let i = index">
+      <img [src]="url" class="thumbnail" alt="preview">
+      <button type="button" class="remove-btn" (click)="removeImage(i)">×</button>
+    </div>
+  </div>
+
+  <!-- Hidden File Input -->
+  <input type="file" #fileInput hidden accept="image/*" (change)="onFileSelected($event)" />
+
+  <!-- Action Controls -->
+  <div class="action-row">
+    <button type="button" class="choose-btn" (click)="fileInput.click()" [disabled]="uploading">
+      Choose Image
+    </button>
+    <div class="spinner-container" *ngIf="uploading">
+      <div class="spinner"></div> <span>Uploading...</span>
+    </div>
+  </div>
+
+  <!-- Status / Error message -->
+  <div *ngIf="error" class="error-msg">{{ error }}</div>
+</div>

@@ -13,14 +13,10 @@
                             </svg>
                             <span class="overview-title">Overview</span>
                         </div>
-                        <p class="overview-text">
-                            I am a lifelong learner and problem solver, driven by a genuine passion for technology. My
-                            journey began at a young age, while attempting to bend my first computer to my ever-growing
-                            imagination. Those first experiments marked the beginning of a dedicated career in software
-                            engineering and entrepreneurship, where programming continues to be the ultimate canvas for
-                            my limitless creativity. Curiosity has always been the constant in my life, leading me to
-                            break things down, learn how they work, and turn that knowledge into what I build next.
+                        <p class="overview-text" *ngIf="profile">
+                            {{ profile.bio }}
                         </p>
+                        <div *ngIf="!profile && loading" class="spinner" style="margin: 20px auto; width: 24px; height: 24px;"></div>
                     </div>
 
                     <div class="macos-wrapper scroll-animate">
@@ -35,116 +31,63 @@
                             </div>
                             <!-- Editor Tabs -->
                             <div class="editor-tabs">
-                                <div class="tab active" data-tab="technical">
+                                <div class="tab" [class.active]="activeTab === 'technical'" (click)="setTab('technical')" style="cursor: pointer;">
                                     <img src="assets/images/folder-filled.png" alt="Technical" class="tab-icon-img">
                                     Technical
                                 </div>
-                                <div class="tab" data-tab="personal">
+                                <div class="tab" [class.active]="activeTab === 'personal'" (click)="setTab('personal')" style="cursor: pointer;">
                                     <img src="assets/images/folder-outline.png" alt="Personal" class="tab-icon-img">
                                     Personal
                                 </div>
                             </div>
                             <div class="window-content">
                                 <div class="window-body">
+                                    <div class="loading-overlay" *ngIf="loading" style="padding: 2rem; color: #888;">
+                                        Loading sections...
+                                    </div>
                                     <!-- Sidebar (Left) -->
-                                    <div class="sidebar">
+                                    <div class="sidebar" *ngIf="!loading">
                                         <!-- Technical Folder Files -->
-                                        <div class="file-list-container active" id="list-technical">
-                                            <div class="file-item active" data-file="opensource">
+                                        <div class="file-list-container active" *ngIf="activeTab === 'technical'">
+                                            <div class="file-item" 
+                                                 *ngFor="let sec of technicalSections"
+                                                 [ngClass]="{'active': activeSection?.id === sec.id}"
+                                                 (click)="setActiveSection(sec)"
+                                                 style="cursor: pointer;">
                                                 <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
-                                                <span class="file-name">Opensource.txt</span>
+                                                <span class="file-name">{{ sec.name }}.txt</span>
                                             </div>
-                                            <div class="file-item" data-file="specialization">
-                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
-                                                <span class="file-name">Specialization.txt</span>
-                                            </div>
-                                            <div class="file-item" data-file="expertise">
-                                                <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
-                                                <span class="file-name">Expertise.txt</span>
+                                            <div *ngIf="technicalSections.length === 0" style="padding: 10px; color: #666; font-size: 0.85rem;">
+                                                Empty folder
                                             </div>
                                         </div>
 
                                         <!-- Personal Folder Files -->
-                                        <div class="file-list-container" id="list-personal">
-                                            <div class="file-item" data-file="background">
+                                        <div class="file-list-container active" *ngIf="activeTab === 'personal'">
+                                            <div class="file-item" 
+                                                 *ngFor="let sec of personalSections"
+                                                 [ngClass]="{'active': activeSection?.id === sec.id}"
+                                                 (click)="setActiveSection(sec)"
+                                                 style="cursor: pointer;">
                                                 <img src="assets/images/file-icon.png" class="file-icon-img" alt="File">
-                                                <span class="file-name">Background.txt</span>
+                                                <span class="file-name">{{ sec.name }}.txt</span>
+                                            </div>
+                                            <div *ngIf="personalSections.length === 0" style="padding: 10px; color: #666; font-size: 0.85rem;">
+                                                Empty folder
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- Main View (Right) -->
-                                    <div class="main-view">
-                                        <!-- File Content: Opensource.txt -->
-                                        <div class="file-content active" id="content-opensource">
-                                            <h3 class="file-heading">🔥 Open-Source Initiatives</h3>
-                                            <p class="file-text">
-                                                I have a strong commitment to the open-source community. My most notable
-                                                contribution is <a href="#" class="highlight">Laradock.io</a>, a full
-                                                PHP development environment for Docker. It has been used by thousands of
-                                                developers to simplify their workflow.
-                                                <br><br>
-                                                In addition, I created <a href="#" class="highlight">Apiato</a>, a
-                                                flawless framework for building scalable APIs on top of Laravel,
-                                                designed to speed up development while maintaining code quality.
-                                                <br><br>
-                                                My work also includes <a href="#" class="highlight">Porto</a>, a
-                                                software architectural pattern that helps developers organize their code
-                                                in a highly modular way.
-                                            </p>
-                                        </div>
-
-                                        <!-- File Content: Specialization.txt -->
-                                        <div class="file-content" id="content-specialization">
-                                            <h3 class="file-heading" style="color: #4facfe;">⚡ Cloud & AI Specialization
+                                    <div class="main-view" *ngIf="!loading">
+                                        <div class="file-content active" *ngIf="activeSection">
+                                            <h3 class="file-heading" [style.color]="activeTab === 'technical' ? '#4facfe' : '#a252fa'">
+                                                {{ activeTab === 'technical' ? '⚡ ' : '🌱 ' }}{{ activeSection.name }}
                                             </h3>
-                                            <p class="file-text">
-                                                My focus lies at the intersection of <span class="highlight-blue">Cloud
-                                                    Infrastructure</span> and <span class="highlight-blue">Artificial
-                                                    Intelligence</span>.
-                                                <br><br>
-                                                I specialize in building robust <strong>RAG (Retrieval-Augmented
-                                                    Generation)</strong> systems that allow AI models to interact with
-                                                private data securely and efficiently.
-                                                <br><br>
-                                                I also have deep experience in <strong>MLOps</strong>, deploying and
-                                                monitoring machine learning models using Kubernetes and Kubeflow,
-                                                ensuring they perform reliably in production environments.
-                                            </p>
+                                            <div class="file-text" [innerHTML]="activeSection.content" style="white-space: pre-wrap;"></div>
                                         </div>
-
-                                        <!-- File Content: Expertise.txt -->
-                                        <div class="file-content" id="content-expertise">
-                                            <h3 class="file-heading" style="color: #ff5f56;">🛠️ Technical Expertise
-                                            </h3>
-                                            <ul class="file-list-content">
-                                                <li><span class="bullet">></span> <strong>Languages:</strong> Python
-                                                    (Advanced), TypeScript, Go, PHP.</li>
-                                                <li><span class="bullet">></span> <strong>Cloud & DevOps:</strong> AWS,
-                                                    Google Cloud, Docker, Kubernetes, Terraform, CI/CD pipelines.</li>
-                                                <li><span class="bullet">></span> <strong>AI/ML Frameworks:</strong>
-                                                    PyTorch, TensorFlow, LangChain, Hugging Face Transformers.</li>
-                                                <li><span class="bullet">></span> <strong>Databases:</strong>
-                                                    PostgreSQL, MongoDB, Redis, Vector Databases (Pinecone, ChromaDB).
-                                                </li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- File Content: Background.txt -->
-                                        <div class="file-content" id="content-background">
-                                            <h3 class="file-heading" style="color: #a6e22e;">🌱 My Background</h3>
-                                            <p class="file-text">
-                                                My journey began with a curiosity for how systems work, which led me to
-                                                Software Engineering. Over the years, I've evolved from a Full Stack Web
-                                                Developer to a specialized Cloud Engineer with a passion for AI.
-                                                <br><br>
-                                                I believe in lifelong learning and constantly challenge myself with new
-                                                technologies. Beyond coding, I enjoy mentoring upcoming developers and
-                                                sharing knowledge through blog posts and community talks.
-                                                <br><br>
-                                                I am currently Open to Work and looking for opportunities to leverage my
-                                                skills in a dynamic team environment.
-                                            </p>
+                                        <div class="file-content active" *ngIf="!activeSection" style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">
+                                            Select a file to view its contents.
                                         </div>
                                     </div>
                                 </div>

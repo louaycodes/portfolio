@@ -172,3 +172,35 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ========================================
+   LIGHT MODE — Technologies
+   ======================================== */
+[data-theme="light"] .tech-window {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .tech-window-header {
+    background: #f7f8fa;
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .tech-search-input {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #1a1f2c;
+}
+
+[data-theme="light"] .tech-window-body {
+    background: #ffffff;
+}
+
+[data-theme="light"] .tech-card:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .tech-name {
+    color: #2d3748;
+}
