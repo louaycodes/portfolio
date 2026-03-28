@@ -1,4 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Project, ProjectService } from '../../shared/services/project.service';
 
 declare const calendar: any;
 
@@ -8,7 +9,15 @@ declare const calendar: any;
   standalone: false,
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent implements AfterViewInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
+  projects: Project[] = [];
+
+  constructor(private projectService: ProjectService) {}
+
+  ngOnInit(): void {
+    this.projects = this.projectService.getAll();
+  }
+
   ngAfterViewInit() {
     this.initGoogleCalendar();
   }

@@ -5,6 +5,22 @@
                 <p class="section-subtitle">A collection of my work, experiments, and open source contributions.</p>
             </header>
 
+            <!-- Dynamic cards from ProjectService -->
+            <div class="projects-grid" style="margin-top: 0; margin-bottom: 48px;">
+                <div class="project-card service-card" *ngFor="let project of projects" [routerLink]="['/projects', project.id]" style="cursor: pointer;">
+                    <div class="project-image">
+                        <img [src]="project.images[0]" [alt]="project.title" style="width:100%;height:100%;object-fit:cover;border-radius:6px;" />
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">{{ project.title }}</h3>
+                    </div>
+                    <div class="tech-tags" style="margin-top: 8px;">
+                        <span class="tech-tag" *ngFor="let tech of project.techStack.slice(0, 2)">{{ tech }}</span>
+                    </div>
+                    <button class="view-details-btn" style="margin-top: 14px;">View Details &gt;</button>
+                </div>
+            </div>
+
             <div class="projects-grid" style="margin-top: 0; margin-bottom: 80px;">
 
                 <!-- Project Card 1: AI Prompt Manager -->
